@@ -5,6 +5,7 @@
     <HomePageSlider />
     <HomePagePromoBox />
     <HomePageCatalogueContent />
+    <HomePageFeature />
   </div>
 </template>
 
@@ -14,6 +15,7 @@
   import HomePageSlider from '../elements/HomePageSlider.vue';
   import HomePagePromoBox from '../elements/HomePagePromoBox.vue';
   import HomePageCatalogueContent from '../elements/HomePageCatalogueContent.vue';
+  import HomePageFeature from '../elements/HomePageFeature.vue';
 
   export default {
     name: 'HomePage',
@@ -23,6 +25,7 @@
       HomePageSlider,
       HomePagePromoBox,
       HomePageCatalogueContent,
+      HomePageFeature,
     },
   };
 </script>
