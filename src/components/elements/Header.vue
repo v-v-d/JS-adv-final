@@ -84,9 +84,11 @@
     color: $darkColorAccent
     display: flex
     margin-top: 5px
+    font-weight: 100
 
   .color-accent
     color: $colorAccent
+    font-weight: 600
 
   .header-form
     display: flex
