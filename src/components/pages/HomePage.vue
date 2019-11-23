@@ -4,6 +4,7 @@
     <NavBar/>
     <HomePageSlider />
     <HomePagePromoBox />
+    <HomePageCatalogueContent />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
   import NavBar from '../elements/NavBar.vue';
   import HomePageSlider from '../elements/HomePageSlider.vue';
   import HomePagePromoBox from '../elements/HomePagePromoBox.vue';
+  import HomePageCatalogueContent from '../elements/HomePageCatalogueContent.vue';
 
   export default {
     name: 'HomePage',
@@ -20,10 +22,11 @@
       NavBar,
       HomePageSlider,
       HomePagePromoBox,
-    }
+      HomePageCatalogueContent,
+    },
   };
 </script>
 
-<style lang="scss">
+<style lang="sass">
 
 </style>
