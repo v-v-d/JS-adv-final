@@ -2,7 +2,7 @@
   <header>
     <div class="content header-flex">
       <div class="header-l">
-        <a class="logo" href="index.html">
+        <a class="logo" href="#">
           <img class="logo-img" src="../../assets/logo.png" alt="logo">
           <p class="brand-name">BRAN<span class="color-accent">D</span></p>
         </a>
@@ -15,7 +15,7 @@
 
       <div class="header-r">
         <div class="cart">
-          <a href="shoping-cart.html">
+          <a href="#">
             <img class="shopping-cart" src="../../assets/shopping-cart.svg" alt="shopping-cart">
           </a>
         </div>
