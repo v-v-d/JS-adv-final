@@ -9,10 +9,7 @@
 
         <div class="header-form">
           <a href="#" class="browse">Browse</a>
-          <input class="search" type="search" placeholder="Search for Item...">
-          <div class="btn-search">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div>
+          <SearchLine />
         </div>
       </div>
 
@@ -30,8 +27,13 @@
 </template>
 
 <script>
+  import SearchLine from '../elements/SearchLine.vue';
+
   export default {
     name: 'Header',
+    components: {
+      SearchLine,
+    }
   };
 </script>
 
@@ -105,42 +107,12 @@
 
   .browse:hover
     background: $colorAccent
-    color: $lightColorAccent /* TODO: решить проблему с пропаданием строки WOMAN */
+    color: $lightColorAccent
+    /* TODO: решить проблему с пропаданием строки WOMAN */
     border-color: $colorAccent
 
   .browse:hover .mega-menu-btn-box
     display: block
-
-  .search
-    border: 1px solid #e6e6e6
-    -webkit-box-sizing: border-box
-    box-sizing: border-box
-    background-color: $lightColorAccent
-    width: 279px
-    height: 100%
-    color: #a4a4a4
-    font-size: 14px
-    padding: 0 15px
-
-  .search:focus
-    outline-color: transparent
-    border-color: $colorAccent
-
-  .btn-search
-    border-bottom-right-radius: 3px
-    border-top-right-radius: 3px
-    border: 1px solid #d9d9d9
-    border-left-color: transparent
-    box-sizing: border-box
-    background-color: $lightColorAccent
-    height: 100%
-    width: 38px
-    right: 0
-    text-align: center
-    line-height: 38px
-
-  .btn-search:hover
-    color: $colorAccent
 
   .header-r
     @extend .header-l
@@ -157,6 +129,9 @@
 
   .shopping-cart
     margin: 0 25px 0 0
+
+  .shopping-cart:hover
+    opacity: 0.5
 
   .button
     background: $colorAccent
