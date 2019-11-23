@@ -3,6 +3,7 @@
     <Header/>
     <NavBar/>
     <HomePageSlider />
+    <HomePagePromoBox />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
   import Header from '../elements/Header.vue';
   import NavBar from '../elements/NavBar.vue';
   import HomePageSlider from '../elements/HomePageSlider.vue';
+  import HomePagePromoBox from '../elements/HomePagePromoBox.vue';
 
   export default {
     name: 'HomePage',
@@ -17,6 +19,7 @@
       Header,
       NavBar,
       HomePageSlider,
+      HomePagePromoBox,
     }
   };
 </script>

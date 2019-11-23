@@ -48,4 +48,7 @@
 
   button
     transition: .3s
+
+  img
+    transition: .5s
 </style>
