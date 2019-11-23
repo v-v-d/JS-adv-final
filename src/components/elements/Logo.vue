@@ -1,7 +1,7 @@
 <template>
   <a class="logo" href="#">
     <img class="logo-img" src="../../assets/logo.png" alt="logo">
-    <p class="brand-name">BRAN<span class="color-accent">D</span></p>
+    <span class="brand-name">BRAN<span class="color-accent">D</span></span>
   </a>
 </template>
 
