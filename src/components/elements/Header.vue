@@ -2,10 +2,7 @@
   <header>
     <div class="content header-flex">
       <div class="header-l">
-        <a class="logo" href="#">
-          <img class="logo-img" src="../../assets/logo.png" alt="logo">
-          <p class="brand-name">BRAN<span class="color-accent">D</span></p>
-        </a>
+        <Logo />
 
         <div class="header-form">
           <a href="#" class="browse">Browse</a>
@@ -27,6 +24,7 @@
 </template>
 
 <script>
+  import Logo from '../elements/Logo.vue';
   import SearchLine from '../elements/SearchLine.vue';
   import Button from '../elements/Button.vue';
 
@@ -38,6 +36,7 @@
       };
     },
     components: {
+      Logo,
       SearchLine,
       Button,
     },
