@@ -183,7 +183,7 @@
 
   .browse:hover
     background: $colorAccent
-    color: $lightColorAccent /* TODO: решить проблему с пропаданием строки WOMAN */
+    color: $lightColorAccent
     border-color: $colorAccent
 
   .browse:hover .mega-menu-btn-box

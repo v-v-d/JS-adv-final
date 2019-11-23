@@ -18,6 +18,7 @@
   .logo
     display: flex
     align-items: center
+    width: 170px
 
   .logo-img
     margin-right: 15px
