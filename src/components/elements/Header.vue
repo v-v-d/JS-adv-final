@@ -20,7 +20,7 @@
           </a>
         </div>
 
-        <a class="button" href="#">My Account</a>
+        <Button :button-name="buttonName"/>
       </div>
     </div>
   </header>
@@ -28,12 +28,19 @@
 
 <script>
   import SearchLine from '../elements/SearchLine.vue';
+  import Button from '../elements/Button.vue';
 
   export default {
     name: 'Header',
+    data() {
+      return {
+        buttonName: 'My Account', // TODO: убрать хардкод
+      };
+    },
     components: {
       SearchLine,
-    }
+      Button,
+    },
   };
 </script>
 
