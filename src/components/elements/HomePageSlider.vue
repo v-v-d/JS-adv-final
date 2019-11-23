@@ -1,7 +1,9 @@
 <template>
   <section class="slider">
     <div class="slider-back content">
-      <img class="slider-img" src="../../assets/slider.jpg">
+      <div class="img-box">
+        <img class="slider-img" src="../../assets/slider.jpg">
+      </div>
       <div class="slider-text">
         <h2>THE BRAND</h2>
         <h3>OF LUXERIOUS <span class="color-accent">FASHION</span></h3>
@@ -63,8 +65,18 @@
     display: flex
     align-items: center
 
-  .slider-img
+  .img-box
+    position: relative
+    overflow: hidden
     height: 100%
+    width: 100%
+
+  .slider-img
+    position: absolute
+    top: 46%
+    left: 53%
+    transform: translate(-50%,-50%)
+    object-fit: cover
 
   .slider-text
     @extend .tracking-in-contract-bck
