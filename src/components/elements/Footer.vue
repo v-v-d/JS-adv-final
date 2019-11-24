@@ -104,10 +104,6 @@
   $darkColorAccent: #222222
   $lightColorAccent: #ffffff
 
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .blok-subscribe
     position: relative
     height: 438px
@@ -119,7 +115,6 @@
 
   .subscribe-img
     position: absolute
-    width: 100%
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
