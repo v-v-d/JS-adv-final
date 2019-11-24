@@ -112,6 +112,7 @@
     justify-content: space-between
     background-color: #ECECEC
     z-index: 1
+    overflow: hidden
 
   .subscribe-img
     position: absolute
