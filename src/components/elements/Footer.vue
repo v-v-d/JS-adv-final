@@ -124,7 +124,7 @@
   .blok-subscribe
     .blok-subscribe-l
       img
-        width: 83px
+        min-width: 83px
         height: 83px
         border-radius: 50px
 
