@@ -1,10 +1,32 @@
 <template>
-  <h1>Это CatalogPage.vue</h1>
+  <div>
+    <Header/>
+    <NavBar/>
+    <CatalogTitleCategory/>
+    <CatalogGridProduct/>
+    <CatalogFeatureProduct/>
+    <Footer />
+  </div>
 </template>
 
 <script>
+  import Header from '../elements/Header.vue';
+  import NavBar from '../elements/NavBar.vue';
+  import CatalogTitleCategory from '../elements/CatalogTitleCategory.vue';
+  import CatalogGridProduct from '../elements/CatalogGridProduct.vue';
+  import CatalogFeatureProduct from '../elements/CatalogFeatureProduct.vue';
+  import Footer from '../elements/Footer.vue';
+
   export default {
     name: 'CatalogPage',
+    components: {
+      Header,
+      NavBar,
+      CatalogTitleCategory,
+      CatalogGridProduct,
+      CatalogFeatureProduct,
+      Footer,
+    },
   };
 </script>
 

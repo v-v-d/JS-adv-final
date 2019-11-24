@@ -104,10 +104,6 @@
   $darkColorAccent: #222222
   $lightColorAccent: #ffffff
 
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .blok-subscribe
     position: relative
     height: 438px
@@ -116,10 +112,10 @@
     justify-content: space-between
     background-color: #ECECEC
     z-index: 1
+    overflow: hidden
 
   .subscribe-img
     position: absolute
-    width: 100%
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
@@ -128,7 +124,7 @@
   .blok-subscribe
     .blok-subscribe-l
       img
-        width: 83px
+        min-width: 83px
         height: 83px
         border-radius: 50px
 

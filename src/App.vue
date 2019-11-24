@@ -51,4 +51,7 @@
 
   img
     transition: .5s
+
+  .color-accent
+    color: $colorAccent
 </style>
