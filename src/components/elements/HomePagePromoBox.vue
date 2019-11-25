@@ -52,10 +52,6 @@
 </script>
 
 <style lang="sass">
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .promo-box
     margin: 100px 0
     box-sizing: border-box

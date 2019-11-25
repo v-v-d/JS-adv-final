@@ -83,10 +83,6 @@
 </script>
 
 <style lang="sass">
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .menu
     display: flex
     justify-content: center

@@ -44,10 +44,6 @@
 </script>
 
 <style lang="sass">
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .feature
     margin-top: 100px
     margin-bottom: 50px

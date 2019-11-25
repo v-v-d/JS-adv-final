@@ -206,10 +206,6 @@
       transform: rotateY(0)
       opacity: 1
 
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .catalogue-header
     margin-bottom: 100px
 

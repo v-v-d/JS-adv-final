@@ -127,10 +127,6 @@
 </script>
 
 <style lang="sass">
-  .content
-    width: 1140px
-    margin: 0 auto
-
   header
     border: 1px solid #ececec
     box-sizing: border-box

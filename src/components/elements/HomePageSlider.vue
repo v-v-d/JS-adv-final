@@ -48,10 +48,6 @@
       transform: translateZ(0)
       opacity: 1
 
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .slider
     background: #e8e8e8
     height: 614px
