@@ -52,6 +52,12 @@
   img
     transition: .5s
 
+  hr
+    border: 1px solid #eaeaea
+    box-sizing: border-box
+    height: 1px
+    margin-bottom: 40px
+
   .color-accent
     color: $colorAccent
 </style>
