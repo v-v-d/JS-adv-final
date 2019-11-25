@@ -4,6 +4,7 @@
     <NavBar/>
     <CatalogTitleCategory/>
     <ProductImageSlide/>
+    <ProductDescription/>
     <Footer/>
   </div>
 </template>
@@ -13,6 +14,7 @@
   import NavBar from '../elements/NavBar.vue';
   import CatalogTitleCategory from '../elements/CatalogTitleCategory.vue';
   import ProductImageSlide from '../elements/ProductImageSlide.vue';
+  import ProductDescription from '../elements/ProductDescription.vue';
   import Footer from '../elements/Footer.vue';
 
   export default {
@@ -22,6 +24,7 @@
       NavBar,
       CatalogTitleCategory,
       ProductImageSlide,
+      ProductDescription,
       Footer,
     }
   };
