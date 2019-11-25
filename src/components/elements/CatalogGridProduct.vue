@@ -559,7 +559,6 @@
     box-sizing: border-box
     line-height: 39px
     color: $lightColorAccent
-    /*background: rgba(255, 255, 255, 0) url("../img/add-to-cart.svg") no-repeat 10px 10px*/
     padding: 0 13px 0 13px
     position: absolute
     top: 89px
@@ -628,31 +627,4 @@
   .btn-view-all:hover
     color: $lightColorAccent
     background: $colorAccent
-
-  .flip-in-ver-left
-    -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
-    animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
-
-
-  @-webkit-keyframes flip-in-ver-left
-    0%
-      -webkit-transform: rotateY(80deg)
-      transform: rotateY(80deg)
-      opacity: 0
-    100%
-      -webkit-transform: rotateY(0)
-      transform: rotateY(0)
-      opacity: 1
-
-  @keyframes flip-in-ver-left
-    0%
-      -webkit-transform: rotateY(80deg)
-      transform: rotateY(80deg)
-      opacity: 0
-
-  100%
-    -webkit-transform: rotateY(0)
-    transform: rotateY(0)
-    opacity: 1
-
 </style>

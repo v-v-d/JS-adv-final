@@ -183,29 +183,6 @@
 </script>
 
 <style lang="sass">
-  .flip-in-ver-left
-    -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
-    animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
-
-  @-webkit-keyframes flip-in-ver-left
-    0%
-      -webkit-transform: rotateY(80deg)
-      transform: rotateY(80deg)
-      opacity: 0
-    100%
-      -webkit-transform: rotateY(0)
-      transform: rotateY(0)
-      opacity: 1
-    @keyframes flip-in-ver-left
-      0%
-        -webkit-transform: rotateY(80deg)
-        transform: rotateY(80deg)
-        opacity: 0
-    100%
-      -webkit-transform: rotateY(0)
-      transform: rotateY(0)
-      opacity: 1
-
   .catalogue-header
     margin-bottom: 100px
 
@@ -278,16 +255,12 @@
     box-sizing: border-box
     line-height: 39px
     color: $lightColorAccent
-    /*background: rgba(255, 255, 255, 0) url("../img/add-to-cart.svg") no-repeat 10px 10px*/
     padding: 0 13px
     position: absolute
     top: 89px
     display: none
     @extend .flip-in-ver-left
     transition: .1s
-
-  /*.button-add-to-cart:hover*/
-  /*  background: $colorAccent url("../img/add-to-cart.svg") no-repeat 10px 10px*/
 
   .button-add-to-cart:hover
     background-color: $colorAccent
