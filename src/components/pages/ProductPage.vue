@@ -5,6 +5,7 @@
     <CatalogTitleCategory/>
     <ProductImageSlide/>
     <ProductDescription/>
+    <ProductYouMayLike/>
     <Footer/>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import CatalogTitleCategory from '../elements/CatalogTitleCategory.vue';
   import ProductImageSlide from '../elements/ProductImageSlide.vue';
   import ProductDescription from '../elements/ProductDescription.vue';
+  import ProductYouMayLike from '../elements/ProductYouMayLike.vue';
   import Footer from '../elements/Footer.vue';
 
   export default {
@@ -25,6 +27,7 @@
       CatalogTitleCategory,
       ProductImageSlide,
       ProductDescription,
+      ProductYouMayLike,
       Footer,
     }
   };
