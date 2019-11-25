@@ -87,10 +87,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .head-you-may-like
     color: #4d4d4d
     font-size: 24px

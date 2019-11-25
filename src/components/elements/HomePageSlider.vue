@@ -19,10 +19,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .tracking-in-contract-bck
     -webkit-animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both
     animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both

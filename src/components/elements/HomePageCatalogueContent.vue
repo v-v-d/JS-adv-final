@@ -183,10 +183,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .flip-in-ver-left
     -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
     animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both

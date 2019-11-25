@@ -276,10 +276,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .root-box
     display: flex
     margin: 0 30px

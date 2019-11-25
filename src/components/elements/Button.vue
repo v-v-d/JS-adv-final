@@ -10,9 +10,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $lightColorAccent: #ffffff
-
   .button
     background: $colorAccent
     color: $lightColorAccent

@@ -100,10 +100,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .blok-subscribe
     position: relative
     height: 438px
