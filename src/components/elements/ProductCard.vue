@@ -1,6 +1,6 @@
 <template>
   <article class="product-item">
-    <router-link to="/catalog:{{ id }}">
+    <router-link :to="`/catalog:${id}`">
       <div class="img-product">
         <img :src="img" alt="product">
       </div>

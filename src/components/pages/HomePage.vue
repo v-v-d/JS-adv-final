@@ -4,7 +4,7 @@
     <NavBar/>
     <HomePageSlider />
     <HomePagePromoBox />
-    <HomePageCatalogueContent />
+    <HomePageCatalogueContent :products="products" />
     <HomePageFeature />
     <Footer />
   </div>
@@ -21,6 +21,7 @@
 
   export default {
     name: 'HomePage',
+    props: ['products'],
     components: {
       Header,
       NavBar,

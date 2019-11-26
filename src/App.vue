@@ -1,7 +1,7 @@
 <template>
   <div class="main-content">
     <div class="top-site">
-      <router-view/>
+      <router-view :products="products"/>
     </div>
   </div>
 </template>
@@ -9,6 +9,42 @@
 <script>
   export default {
     name: 'App',
+    data() {
+      return {
+        products: [
+          {
+            id: 1,
+            name: 'Marina t-shirt',
+            price: 150,
+            img: '/img/Layer_2.f493857e.jpg',
+          },
+          {
+            id: 2,
+            name: 'Marina t-shirt',
+            price: 150,
+            img: '/img/Layer_2.f493857e.jpg',
+          },
+          {
+            id: 3,
+            name: 'Marina t-shirt',
+            price: 150,
+            img: '/img/Layer_2.f493857e.jpg',
+          },
+          {
+            id: 4,
+            name: 'Marina t-shirt',
+            price: 150,
+            img: '/img/Layer_2.f493857e.jpg',
+          },
+          {
+            id: 5,
+            name: 'Marina t-shirt',
+            price: 150,
+            img: '/img/Layer_2.f493857e.jpg',
+          },
+        ],
+      };
+    },
   };
 </script>
 

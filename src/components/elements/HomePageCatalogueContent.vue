@@ -6,6 +6,17 @@
     </div>
 
     <div class="grid-catalogue">
+      <ProductCard
+          v-for="product in products"
+          :key="product.id"
+          :id="product.id"
+          :img="product.img"
+          :name="product.name"
+          :price="product.price"
+      />
+    </div>
+
+    <div class="grid-catalogue">
 
       <article class="product-item">
         <a href="#">
@@ -170,9 +181,11 @@
 
 <script>
   import Button from '../elements/Button.vue';
+  import ProductCard from '../elements/ProductCard.vue';
 
   export default {
     name: 'HomePageCatalogueContent',
+    props: ['products'],
     data() {
       return {
         buttonName: 'Browse All Product', // TODO: убрать хардкод
@@ -181,6 +194,7 @@
     },
     components: {
       Button,
+      ProductCard,
     },
   };
 </script>
