@@ -1,11 +1,11 @@
 <template>
-  <a class="button" href="#">{{ buttonName }}</a>
+  <router-link class="button" :to="`${buttonSrc}`">{{ buttonName }}</router-link>
 </template>
 
 <script>
   export default {
     name: 'Button',
-    props: ['buttonName'],
+    props: ['buttonSrc', 'buttonName'],
   };
 </script>
 

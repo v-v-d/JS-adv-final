@@ -4,6 +4,7 @@
       <h3>Featured Items</h3>
       <h4>Shop for items based on what we featured in this week</h4>
     </div>
+
     <div class="grid-catalogue">
 
       <article class="product-item">
@@ -160,8 +161,9 @@
       </article>
 
     </div>
+
     <div class="browse-all-product">
-      <Button :button-name="buttonName"/>
+      <Button :button-src="buttonSrc" :button-name="buttonName"/>
     </div>
   </section>
 </template>
@@ -174,6 +176,7 @@
     data() {
       return {
         buttonName: 'Browse All Product', // TODO: убрать хардкод
+        buttonSrc: '/catalog', // TODO: убрать хардкод
       };
     },
     components: {
