@@ -203,7 +203,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .grid-product
     display: flex
 
