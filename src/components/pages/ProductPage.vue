@@ -5,7 +5,7 @@
     <CatalogTitleCategory/>
     <ProductImageSlide/>
     <ProductDescription/>
-    <ProductYouMayLike/>
+    <ProductYouMayLike :products="products" @buy="buyButtonHandler"/>
     <Footer/>
   </div>
 </template>
@@ -21,6 +21,12 @@
 
   export default {
     name: 'ProductPage',
+    props: ['products'],
+    methods: {
+      buyButtonHandler(product) {
+        this.$emit('buy', product);
+      },
+    },
     components: {
       Header,
       NavBar,

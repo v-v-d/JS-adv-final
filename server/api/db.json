@@ -94,7 +94,7 @@
       "id": 16,
       "name": "Long skirt",
       "price": 165,
-      "img": "/assets/Layer_45.pg"
+      "img": "/assets/Layer_45.jpg"
     },
     {
       "id": 17,
@@ -129,7 +129,7 @@
       "name": "Beard jacket",
       "price": 350,
       "img": "/assets/Layer_4.jpg",
-      "qty": 3
+      "qty": 7
     },
     {
       "id": 8,
