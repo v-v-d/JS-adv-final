@@ -57,7 +57,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .catalogue-header
     margin-bottom: 100px
 
