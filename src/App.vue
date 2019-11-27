@@ -1,7 +1,11 @@
 <template>
   <div class="main-content">
     <div class="top-site">
-      <router-view :products="products" :cart-items="cartItems"/>
+      <router-view
+          :products="products"
+          :cart-items="cartItems"
+          @buy="buyButtonHandler"
+      />
     </div>
   </div>
 </template>
