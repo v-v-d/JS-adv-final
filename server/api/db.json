@@ -4,153 +4,218 @@
       "id": 1,
       "name": "Marina t-shirt",
       "price": 150,
-      "img": "/assets/Layer_2.jpg"
+      "img": "/assets/Layer_2.jpg",
+      "availableSizes": ["M", "L", "XL", "XXL"],
+      "category": "t-shirts",
+      "brand": "H&M",
+      "designer": "Binburhan",
+      "material": "cotton",
+      "availableColors": "white"
     },
     {
       "id": 2,
       "name": "Coral top",
       "price": 50,
-      "img": "/assets/Layer_3.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Beard jacket",
-      "price": 350,
-      "img": "/assets/Layer_4.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Flower dress",
-      "price": 250,
-      "img": "/assets/Layer_5.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Stripy top",
-      "price": 120,
-      "img": "/assets/Layer_6.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Grey jacket",
-      "price": 210,
-      "img": "/assets/Layer_7.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Hipster pants",
-      "price": 80,
-      "img": "/assets/Layer_8.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Square kangaroo",
-      "price": 160,
-      "img": "/assets/Layer_9.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Long top",
-      "price": 90,
-      "img": "/assets/2_1.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Brown coat",
-      "price": 75,
-      "img": "/assets/2_2.jpg"
-    },
-    {
-      "id": 11,
-      "name": "Beard t-shirt",
-      "price": 115,
-      "img": "/assets/2_4.jpg"
-    },
-    {
-      "id": 12,
-      "name": "Beard jacket",
-      "price": 170,
-      "img": "/assets/2_6.jpg"
-    },
-    {
-      "id": 13,
-      "name": "Brown long top",
-      "price": 85,
-      "img": "/assets/2_8.jpg"
-    },
-    {
-      "id": 14,
-      "name": "Blue beard t-shirt",
-      "price": 95,
-      "img": "/assets/2_9.jpg"
-    },
-    {
-      "id": 15,
-      "name": "Black suit",
-      "price": 210,
-      "img": "/assets/Layer_44.jpg"
-    },
-    {
-      "id": 16,
-      "name": "Long skirt",
-      "price": 165,
-      "img": "/assets/Layer_45.jpg"
-    },
-    {
-      "id": 17,
-      "name": "Yellow long sleeve",
-      "price": 130,
-      "img": "/assets/Layer_46.jpg"
-    },
-    {
-      "id": 18,
-      "name": "Black jeans",
-      "price": 260,
-      "img": "/assets/Layer_47.jpg"
-    }
-  ],
-  "cart": [
-    {
-      "id": 12,
-      "name": "Beard jacket",
-      "price": 170,
-      "img": "/assets/2_6.jpg",
-      "qty": 10
-    },
-    {
-      "id": 17,
-      "name": "Yellow long sleeve",
-      "price": 130,
-      "img": "/assets/Layer_46.jpg",
-      "qty": 4
+      "img": "/assets/Layer_3.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L"],
+      "category": "denim",
+      "brand": "H&M",
+      "designer": "Binburhan",
+      "material": "silk",
+      "availableColors": "black"
     },
     {
       "id": 3,
       "name": "Beard jacket",
       "price": 350,
       "img": "/assets/Layer_4.jpg",
-      "qty": 7
+      "availableSizes": ["XXS", "XS", "L", "XL", "XXL"],
+      "category": "jackets",
+      "brand": "H&M",
+      "designer": "Mr. Noname",
+      "material": "wool",
+      "availableColors": "white"
     },
     {
-      "id": 8,
-      "name": "Square kangaroo",
-      "price": 160,
-      "img": "/assets/Layer_9.jpg",
-      "qty": 1
+      "id": 4,
+      "name": "Flower dress",
+      "price": 250,
+      "img": "/assets/Layer_5.jpg",
+      "availableSizes": ["XXS", "XS", "S", "XL", "XXL"],
+      "category": "t-shirts",
+      "brand": "H&M",
+      "designer": "Mr. Noname",
+      "material": "linen",
+      "availableColors": "black"
     },
     {
-      "id": 16,
-      "name": "Long skirt",
-      "price": 165,
-      "img": "/assets/Layer_45.jpg",
-      "qty": 1
+      "id": 5,
+      "name": "Stripy top",
+      "price": 120,
+      "img": "/assets/Layer_6.jpg",
+      "availableSizes": ["XXS", "M", "L", "XL", "XXL"],
+      "category": "denim",
+      "brand": "H&M",
+      "designer": "Mr. Unknown",
+      "material": "polyester",
+      "availableColors": "yellow"
+    },
+    {
+      "id": 6,
+      "name": "Grey jacket",
+      "price": 210,
+      "img": "/assets/Layer_7.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L"],
+      "category": "jackets",
+      "brand": "H&M",
+      "designer": "Mr. Unknown",
+      "material": "nylon",
+      "availableColors": "red"
     },
     {
       "id": 7,
       "name": "Hipster pants",
       "price": 80,
       "img": "/assets/Layer_8.jpg",
-      "qty": 2
+      "availableSizes": ["XXS", "XS", "M", "L", "XL", "XXL"],
+      "category": "t-shirts",
+      "brand": "Bershka",
+      "designer": "Mr. Nameless",
+      "material": "cotton",
+      "availableColors": "yellow"
+    },
+    {
+      "id": 8,
+      "name": "Square kangaroo",
+      "price": 160,
+      "img": "/assets/Layer_9.jpg",
+      "availableSizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "category": "denim",
+      "brand": "Bershka",
+      "designer": "Mr. Nameless",
+      "material": "silk",
+      "availableColors": "red"
+    },
+    {
+      "id": 9,
+      "name": "Long top",
+      "price": 90,
+      "img": "/assets/2_1.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "jackets",
+      "brand": "Bershka",
+      "designer": "Mr. Anon",
+      "material": "wool",
+      "availableColors": "grey"
+    },
+    {
+      "id": 10,
+      "name": "Brown coat",
+      "price": 75,
+      "img": "/assets/2_2.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "t-shirts",
+      "brand": "Bershka",
+      "designer": "Mr. Anon",
+      "material": "linen",
+      "availableColors": "brown"
+    },
+    {
+      "id": 11,
+      "name": "Beard t-shirt",
+      "price": 115,
+      "img": "/assets/2_4.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "XXL"],
+      "category": "denim",
+      "brand": "Bershka",
+      "designer": "Mr. Strange",
+      "material": "polyester",
+      "availableColors": "grey"
+    },
+    {
+      "id": 12,
+      "name": "Beard jacket",
+      "price": 170,
+      "img": "/assets/2_6.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "jackets",
+      "brand": "Bershka",
+      "designer": "Mr. Strange",
+      "material": "nylon",
+      "availableColors": "brown"
+    },
+    {
+      "id": 13,
+      "name": "Brown long top",
+      "price": 85,
+      "img": "/assets/2_8.jpg",
+      "availableSizes": ["XXS", "XS"],
+      "category": "t-shirts",
+      "brand": "Stradivarius",
+      "designer": "Junior designer",
+      "material": "cotton",
+      "availableColors": "green"
+    },
+    {
+      "id": 14,
+      "name": "Blue beard t-shirt",
+      "price": 95,
+      "img": "/assets/2_9.jpg",
+      "availableSizes": ["XXS", "XS", "S"],
+      "category": "denim",
+      "brand": "Stradivarius",
+      "designer": "Junior designer",
+      "material": "silk",
+      "availableColors": "blue"
+    },
+    {
+      "id": 15,
+      "name": "Black suit",
+      "price": 210,
+      "img": "/assets/Layer_44.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "jackets",
+      "brand": "Stradivarius",
+      "designer": "Middle designer",
+      "material": "wool",
+      "availableColors": "green"
+    },
+    {
+      "id": 16,
+      "name": "Long skirt",
+      "price": 165,
+      "img": "/assets/Layer_45.jpg",
+      "availableSizes": ["XXS", "XS", "S", "L", "XL", "XXL"],
+      "category": "t-shirts",
+      "brand": "Stradivarius",
+      "designer": "Middle designer",
+      "material": "linen",
+      "availableColors": "blue"
+    },
+    {
+      "id": 17,
+      "name": "Yellow long sleeve",
+      "price": 130,
+      "img": "/assets/Layer_46.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "denim",
+      "brand": "Stradivarius",
+      "designer": "Senior designer",
+      "material": "polyester",
+      "availableColors": "orange"
+    },
+    {
+      "id": 18,
+      "name": "Black jeans",
+      "price": 260,
+      "img": "/assets/Layer_47.jpg",
+      "availableSizes": ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      "category": "jackets",
+      "brand": "Stradivarius",
+      "designer": "Senior designer",
+      "material": "nylon",
+      "availableColors": "orange"
     }
-  ]
+  ],
+  "cart": []
 }
