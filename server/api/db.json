@@ -4,109 +4,109 @@
       "id": 1,
       "name": "Marina t-shirt",
       "price": 150,
-      "img": "/img/Layer_2.f493857e.jpg"
+      "img": "/assets/Layer_2.jpg"
     },
     {
       "id": 2,
       "name": "Coral top",
       "price": 50,
-      "img": "/img/Layer_3.00d234a1.jpg"
+      "img": "/assets/Layer_3.jpg"
     },
     {
       "id": 3,
       "name": "Beard jacket",
       "price": 350,
-      "img": "/img/Layer_4.c1a67063.jpg"
+      "img": "/assets/Layer_4.jpg"
     },
     {
       "id": 4,
       "name": "Flower dress",
       "price": 250,
-      "img": "/img/Layer_5.4d82b493.jpg"
+      "img": "/assets/Layer_5.jpg"
     },
     {
       "id": 5,
       "name": "Stripy top",
       "price": 120,
-      "img": "/img/Layer_6.61c8330f.jpg"
+      "img": "/assets/Layer_6.jpg"
     },
     {
       "id": 6,
       "name": "Grey jacket",
       "price": 210,
-      "img": "/img/Layer_7.4f8e1093.jpg"
+      "img": "/assets/Layer_7.jpg"
     },
     {
       "id": 7,
       "name": "Hipster pants",
       "price": 80,
-      "img": "/img/Layer_8.101d0d8c.jpg"
+      "img": "/assets/Layer_8.jpg"
     },
     {
       "id": 8,
       "name": "Square kangaroo",
       "price": 160,
-      "img": "/img/Layer_9.2089c156.jpg"
+      "img": "/assets/Layer_9.jpg"
     },
     {
       "id": 9,
       "name": "Long top",
       "price": 90,
-      "img": "/img/2_1.69a2e388.jpg"
+      "img": "/assets/2_1.jpg"
     },
     {
       "id": 10,
       "name": "Brown coat",
       "price": 75,
-      "img": "/img/2_2.d0cf5b86.jpg"
+      "img": "/assets/2_2.jpg"
     },
     {
       "id": 11,
       "name": "Beard t-shirt",
       "price": 115,
-      "img": "/img/2_4.62a0c00d.jpg"
+      "img": "/assets/2_4.jpg"
     },
     {
       "id": 12,
       "name": "Beard jacket",
       "price": 170,
-      "img": "/img/2_6.bee18221.jpg"
+      "img": "/assets/2_6.jpg"
     },
     {
       "id": 13,
       "name": "Brown long top",
       "price": 85,
-      "img": "/img/2_8.fffe3de7.jpg"
+      "img": "/assets/2_8.jpg"
     },
     {
       "id": 14,
       "name": "Blue beard t-shirt",
       "price": 95,
-      "img": "/img/2_9.3816c98f.jpg"
+      "img": "/assets/2_9.jpg"
     },
     {
       "id": 15,
       "name": "Black suit",
       "price": 210,
-      "img": "/img/Layer_44.d2965f6f.jpg"
+      "img": "/assets/Layer_44.jpg"
     },
     {
       "id": 16,
       "name": "Long skirt",
       "price": 165,
-      "img": "/img/Layer_45.fd2139f8.jpg"
+      "img": "/assets/Layer_45.pg"
     },
     {
       "id": 17,
       "name": "Yellow long sleeve",
       "price": 130,
-      "img": "/img/Layer_46.53552f40.jpg"
+      "img": "/assets/Layer_46.jpg"
     },
     {
       "id": 18,
       "name": "Black jeans",
       "price": 260,
-      "img": "/img/Layer_47.113919cd.jpg"
+      "img": "/assets/Layer_47.jpg"
     }
   ],
   "cart": [
@@ -114,29 +114,43 @@
       "id": 12,
       "name": "Beard jacket",
       "price": 170,
-      "img": "/img/2_6.bee18221.jpg",
+      "img": "/assets/2_6.jpg",
       "qty": 10
     },
     {
       "id": 17,
       "name": "Yellow long sleeve",
       "price": 130,
-      "img": "/img/Layer_46.53552f40.jpg",
+      "img": "/assets/Layer_46.jpg",
       "qty": 4
     },
     {
       "id": 3,
       "name": "Beard jacket",
       "price": 350,
-      "img": "/img/Layer_4.c1a67063.jpg",
+      "img": "/assets/Layer_4.jpg",
       "qty": 3
     },
     {
       "id": 8,
       "name": "Square kangaroo",
       "price": 160,
-      "img": "/img/Layer_9.2089c156.jpg",
+      "img": "/assets/Layer_9.jpg",
       "qty": 1
+    },
+    {
+      "id": 16,
+      "name": "Long skirt",
+      "price": 165,
+      "img": "/assets/Layer_45.jpg",
+      "qty": 1
+    },
+    {
+      "id": 7,
+      "name": "Hipster pants",
+      "price": 80,
+      "img": "/assets/Layer_8.jpg",
+      "qty": 2
     }
   ]
 }

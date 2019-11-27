@@ -143,169 +143,15 @@
       </div>
 
       <div class="grid-catalogue">
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-
-              <img src="../../assets/2_1.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-
-              <img src="../../assets/2_2.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_3.jpg" alt="product">
-            </div>
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_4.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_5.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_6.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_7.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_8.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
-        <article class="product-item">
-          <a href="#">
-            <div class="img-product">
-              <img src="../../assets/2_9.jpg" alt="product">
-            </div>
-
-            <div class="product-description">
-              <h3 class="product-name">Mango People T-shirt</h3>
-              <p class="product-price">$52.00</p>
-            </div>
-          </a>
-          <div class="flex-center">
-            <a href="#" class="button-add-to-cart">
-              <img class="button-add-to-cart-img" src="../../assets/add-to-cart.svg" alt="">
-              <span>Add to Cart</span>
-            </a>
-          </div>
-        </article>
+        <ProductCard
+            v-for="product in slicedProducts"
+            :key="product.id"
+            :id="product.id"
+            :img="product.img"
+            :name="product.name"
+            :price="product.price"
+            @buy="buyButtonHandler(product)"
+        />
       </div>
 
       <div class="product-nav">
@@ -323,14 +169,37 @@
         <a class="btn-view-all" href="#">View All</a>
       </div>
 
-
     </div>
   </div>
 </template>
 
 <script>
+  import ProductCard from '../elements/ProductCard.vue';
+
   export default {
     name: 'CatalogGridProduct',
+    props: ['products'],
+    data() {
+      return {
+        slicedProducts: this.getSlicedProducts(),
+      };
+    },
+    methods: {
+      getRandInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+      getSlicedProducts() {
+        const productsPerPage = 12;
+        let randInt = this.getRandInt(0, this.products.length - productsPerPage);
+        return this.products.slice(randInt, randInt + productsPerPage);
+      },
+      buyButtonHandler(product) {
+        this.$emit('buy', product);
+      },
+    },
+    components: {
+      ProductCard,
+    }
   };
 </script>
 

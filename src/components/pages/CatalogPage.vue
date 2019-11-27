@@ -3,7 +3,7 @@
     <Header/>
     <NavBar/>
     <CatalogTitleCategory/>
-    <CatalogGridProduct/>
+    <CatalogGridProduct :products="products" @buy="buyButtonHandler"/>
     <CatalogFeatureProduct/>
     <Footer />
   </div>
@@ -19,6 +19,12 @@
 
   export default {
     name: 'CatalogPage',
+    props: ['products'],
+    methods: {
+      buyButtonHandler(product) {
+        this.$emit('buy', product);
+      },
+    },
     components: {
       Header,
       NavBar,
