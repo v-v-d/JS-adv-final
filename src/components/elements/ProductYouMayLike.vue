@@ -45,7 +45,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .head-you-may-like
     color: #4d4d4d
     font-size: 24px
