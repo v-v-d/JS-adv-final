@@ -85,4 +85,17 @@
     width: 20px
     margin-right: 3px
     transform: none !important
+
+  .product-item:hover
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.16)
+
+  .product-item:hover
+    .button-add-to-cart
+      display: flex
+
+  .product-item:hover .img-product
+    filter: brightness(50%)
+
+  .button-add-to-cart:hover
+    background: $colorAccent
 </style>
