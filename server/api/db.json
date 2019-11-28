@@ -10,7 +10,7 @@
       "brand": "H&M",
       "designer": "Binburhan",
       "material": "cotton",
-      "availableColors": "white"
+      "color": "white"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "brand": "H&M",
       "designer": "Binburhan",
       "material": "silk",
-      "availableColors": "black"
+      "color": "black"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "brand": "H&M",
       "designer": "Mr. Noname",
       "material": "wool",
-      "availableColors": "white"
+      "color": "white"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "brand": "H&M",
       "designer": "Mr. Noname",
       "material": "linen",
-      "availableColors": "black"
+      "color": "black"
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
       "brand": "H&M",
       "designer": "Mr. Unknown",
       "material": "polyester",
-      "availableColors": "yellow"
+      "color": "yellow"
     },
     {
       "id": 6,
@@ -70,7 +70,7 @@
       "brand": "H&M",
       "designer": "Mr. Unknown",
       "material": "nylon",
-      "availableColors": "red"
+      "color": "red"
     },
     {
       "id": 7,
@@ -82,7 +82,7 @@
       "brand": "Bershka",
       "designer": "Mr. Nameless",
       "material": "cotton",
-      "availableColors": "yellow"
+      "color": "yellow"
     },
     {
       "id": 8,
@@ -94,7 +94,7 @@
       "brand": "Bershka",
       "designer": "Mr. Nameless",
       "material": "silk",
-      "availableColors": "red"
+      "color": "red"
     },
     {
       "id": 9,
@@ -106,7 +106,7 @@
       "brand": "Bershka",
       "designer": "Mr. Anon",
       "material": "wool",
-      "availableColors": "grey"
+      "color": "grey"
     },
     {
       "id": 10,
@@ -118,7 +118,7 @@
       "brand": "Bershka",
       "designer": "Mr. Anon",
       "material": "linen",
-      "availableColors": "brown"
+      "color": "brown"
     },
     {
       "id": 11,
@@ -130,7 +130,7 @@
       "brand": "Bershka",
       "designer": "Mr. Strange",
       "material": "polyester",
-      "availableColors": "grey"
+      "color": "grey"
     },
     {
       "id": 12,
@@ -142,7 +142,7 @@
       "brand": "Bershka",
       "designer": "Mr. Strange",
       "material": "nylon",
-      "availableColors": "brown"
+      "color": "brown"
     },
     {
       "id": 13,
@@ -154,7 +154,7 @@
       "brand": "Stradivarius",
       "designer": "Junior designer",
       "material": "cotton",
-      "availableColors": "green"
+      "color": "green"
     },
     {
       "id": 14,
@@ -166,7 +166,7 @@
       "brand": "Stradivarius",
       "designer": "Junior designer",
       "material": "silk",
-      "availableColors": "blue"
+      "color": "blue"
     },
     {
       "id": 15,
@@ -178,7 +178,7 @@
       "brand": "Stradivarius",
       "designer": "Middle designer",
       "material": "wool",
-      "availableColors": "green"
+      "color": "green"
     },
     {
       "id": 16,
@@ -190,7 +190,7 @@
       "brand": "Stradivarius",
       "designer": "Middle designer",
       "material": "linen",
-      "availableColors": "blue"
+      "color": "blue"
     },
     {
       "id": 17,
@@ -202,7 +202,7 @@
       "brand": "Stradivarius",
       "designer": "Senior designer",
       "material": "polyester",
-      "availableColors": "orange"
+      "color": "orange"
     },
     {
       "id": 18,
@@ -214,7 +214,7 @@
       "brand": "Stradivarius",
       "designer": "Senior designer",
       "material": "nylon",
-      "availableColors": "orange"
+      "color": "orange"
     }
   ],
   "cart": []
