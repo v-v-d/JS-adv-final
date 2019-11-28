@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div v-for="menuItem in menuItems" :key="menuItem">
+    <div v-for="menuItem in menuItems" :key="Object.keys(menuItem).toString()">
       <CatalogLeftDropdownMenuItem
           :menu-item="menuItem"
       />
