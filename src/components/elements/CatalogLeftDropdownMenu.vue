@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div v-for="menuItem in menuItems" :key="Object.keys(menuItem).toString()">
+    <div v-for="menuItem in menuItems" :key="menuItem.key">
       <CatalogLeftDropdownMenuItem
           :menu-item="menuItem"
       />
@@ -38,7 +38,8 @@
         let menuItems = [];
         propsArr.forEach(prop => {
           let menuItem = {};
-          menuItem[prop] = this.getValuesByProp(objArr, prop);
+          menuItem['key'] = prop;
+          menuItem['value'] = this.getValuesByProp(objArr, prop);
           menuItems.push(menuItem);
         });
         return menuItems;

@@ -1,12 +1,11 @@
 <template>
   <div class="product-category">
     <details>
-      <summary class="options-category">{{ menuItemName }}</summary>
+      <summary class="options-category">{{ menuItem.key }}</summary>
       <ul
           class="options-category-list"
-          v-for="value in menuItemValues"
+          v-for="value in menuItem.value"
           :key="value"
-
       ><li><a href="#">{{ value }}</a></li>
       </ul>
     </details>
@@ -19,17 +18,11 @@
     props: ['menuItem'],
     data() {
       return {
-        menuItemName: this.getMenuItemName(),
-        menuItemValues: this.getMenuItemValues(),
+
       }
     },
     methods: {
-      getMenuItemName() {
-        return Object.keys(this.menuItem).join();
-      },
-      getMenuItemValues() {
-        return Object.values(this.menuItem).flat();
-      },
+
     },
   };
 </script>
