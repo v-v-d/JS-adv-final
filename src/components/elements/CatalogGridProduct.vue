@@ -1,68 +1,7 @@
 <template>
   <div class="grid-product content">
     <div class="grid-product-l">
-      <div class="box-kategorii content">
-        <div class="product-category">
-          <details>
-            <summary class="options-category">Category</summary>
-            <ul class="options-category-list">
-              <li><a href="#">Accessories</a></li>
-              <li><a href="#">Bags</a></li>
-              <li><a href="#">Denim</a></li>
-              <li><a href="#">Hoodies & Sweatshirts</a></li>
-              <li><a href="#">Jackets & Coats</a></li>
-              <li><a href="#">Pants</a></li>
-              <li><a href="#">Polos</a></li>
-              <li><a href="#">Shirts</a></li>
-              <li><a href="#">Shoes</a></li>
-              <li><a href="#">Shorts</a></li>
-              <li><a href="#">Sweaters & Knits</a></li>
-              <li><a href="#">T-Shirts</a></li>
-              <li><a href="#">Tanks</a></li>
-            </ul>
-          </details>
-        </div>
-        <div class="product-category">
-          <details>
-            <summary class="options-category">BRAND</summary>
-            <ul class="options-category-list">
-              <li><a href="#">Accessories</a></li>
-              <li><a href="#">Bags</a></li>
-              <li><a href="#">Denim</a></li>
-              <li><a href="#">Hoodies & Sweatshirts</a></li>
-              <li><a href="#">Jackets & Coats</a></li>
-              <li><a href="#">Pants</a></li>
-              <li><a href="#">Polos</a></li>
-              <li><a href="#">Shirts</a></li>
-              <li><a href="#">Shoes</a></li>
-              <li><a href="#">Shorts</a></li>
-              <li><a href="#">Sweaters & Knits</a></li>
-              <li><a href="#">T-Shirts</a></li>
-              <li><a href="#">Tanks</a></li>
-            </ul>
-          </details>
-        </div>
-        <div class="product-category">
-          <details>
-            <summary class="options-category">designer</summary>
-            <ul class="options-category-list">
-              <li><a href="#">Accessories</a></li>
-              <li><a href="#">Bags</a></li>
-              <li><a href="#">Denim</a></li>
-              <li><a href="#">Hoodies & Sweatshirts</a></li>
-              <li><a href="#">Jackets & Coats</a></li>
-              <li><a href="#">Pants</a></li>
-              <li><a href="#">Polos</a></li>
-              <li><a href="#">Shirts</a></li>
-              <li><a href="#">Shoes</a></li>
-              <li><a href="#">Shorts</a></li>
-              <li><a href="#">Sweaters & Knits</a></li>
-              <li><a href="#">T-Shirts</a></li>
-              <li><a href="#">Tanks</a></li>
-            </ul>
-          </details>
-        </div>
-      </div>
+      <CatalogLeftDropdownMenu :products="products"/>
     </div>
 
     <div class="grid-product-r">
@@ -134,17 +73,17 @@
         <form class="form-product-sort">
           <p>Show</p>
           <select name="Show">
+            <option value="03">03</option>
+            <option value="06">06</option>
             <option value="09">09</option>
-            <option value="var-1">10</option>
-            <option value="var-2">11</option>
-            <option value="var-3">12</option>
+            <option value="12">12</option>
           </select>
         </form>
       </div>
 
       <div class="grid-catalogue">
         <ProductCard
-            v-for="product in slicedProducts"
+            v-for="product in filteredProducts"
             :key="product.id"
             :id="product.id"
             :img="product.img"
@@ -166,7 +105,7 @@
           <li><a href="#">7</a></li>
           <li><a href="#">&#10095;</a></li>
         </ul>
-        <a class="btn-view-all" href="#">View All</a>
+        <a @click="buttonViewAllHandler" class="btn-view-all" href="#">View All</a>
       </div>
 
     </div>
@@ -175,31 +114,40 @@
 
 <script>
   import ProductCard from '../elements/ProductCard.vue';
+  import CatalogLeftDropdownMenu from '../elements/CatalogLeftDropdownMenu.vue';
 
   export default {
     name: 'CatalogGridProduct',
     props: ['products'],
     data() {
       return {
-        slicedProducts: this.getSlicedProducts(),
+        filteredProducts: [],
       };
     },
     methods: {
       getRandInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       },
-      getSlicedProducts() {
-        const productsPerPage = 12;
-        let randInt = this.getRandInt(0, this.products.length - productsPerPage);
-        return this.products.slice(randInt, randInt + productsPerPage);
+      filterProductsByQtyPerPage(qtyPerPage) {
+        let randInt = this.getRandInt(0, this.products.length - qtyPerPage);
+        return this.products.slice(randInt, randInt + qtyPerPage);
       },
       buyButtonHandler(product) {
         this.$emit('buy', product);
       },
+      buttonViewAllHandler(event) {
+        this.filteredProducts = this.products;
+        event.preventDefault();
+      }
+    },
+    mounted() {
+      const qtyPerPage = 12;
+      this.filteredProducts = this.filterProductsByQtyPerPage(qtyPerPage);
     },
     components: {
       ProductCard,
-    }
+      CatalogLeftDropdownMenu,
+    },
   };
 </script>
 
