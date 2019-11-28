@@ -121,16 +121,42 @@
     props: ['products'],
     data() {
       return {
+        filterRule: {
+          key: '',
+          value: '',
+          isRemoved: false,
+        },
         filteredProducts: [],
       };
     },
     methods: {
-      getRandInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+      filterProducts() {
+        this.filterRule.isRemoved ? this.removeFromFiltered(this.filterRule) : this.addToFiltered(this.filterRule)
       },
-      filterProductsByQtyPerPage(qtyPerPage) {
-        let randInt = this.getRandInt(0, this.products.length - qtyPerPage);
-        return this.products.slice(randInt, randInt + qtyPerPage);
+      removeFromFiltered() {
+        if (this.filteredProducts.length) {
+          this.getFilteredByRuleProducts(this.filterRule).forEach(filteredByRuleProduct => {
+            this.filteredProducts.forEach((product, idx) => {
+              if (filteredByRuleProduct.id === product.id) {
+                this.filteredProducts.splice(idx, 1);
+              }
+            });
+          });
+        }
+      },
+      addToFiltered() {
+        this.getFilteredByRuleProducts(this.filterRule).forEach(filteredByRuleProduct => {
+          if (this.filteredProducts.length) {
+            if (!this.filteredProducts.some(product => product.id === filteredByRuleProduct.id)) {
+              this.filteredProducts.push(filteredByRuleProduct);
+            }
+          } else {
+            this.filteredProducts.push(filteredByRuleProduct);
+          }
+        });
+      },
+      getFilteredByRuleProducts(filterRule) {
+        return this.products.filter(product => product[filterRule.key] === filterRule.value);
       },
       buyButtonHandler(product) {
         this.$emit('buy', product);
@@ -141,8 +167,7 @@
       }
     },
     mounted() {
-      const qtyPerPage = 12;
-      this.filteredProducts = this.filterProductsByQtyPerPage(qtyPerPage);
+      this.filteredProducts = this.products;
     },
     components: {
       ProductCard,
