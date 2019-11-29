@@ -119,267 +119,264 @@
   import ProductCard from '../elements/ProductCard.vue';
   import CatalogLeftDropdownMenu from '../elements/CatalogLeftDropdownMenu.vue';
 
-  // вместо rest-api для проверки в браузере
   let products = [
     {
-      'id': 1,
-      'name': "Marina t-shirt",
-      'price': 150,
-      'img': "/src/assets/Layer_2.jpg",
-      'availableSizes': ["M", "L", "XL", "XXL"],
-      'category': "t-shirts",
-      'brand': "H&M",
-      'designer': "Binburhan",
-      'material': "cotton",
-      'color': "white"
+      id: 1,
+      name: "Marina t-shirt",
+      price: 150,
+      img: "/src/assets/Layer_2.jpg",
+      availableSizes: ["M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "H&M",
+      designer: "Binburhan",
+      material: "cotton",
+      color: "white"
     },
     {
-      'id': 2,
-      'name': "Coral top",
-      'price': 50,
-      'img': "/src/assets/Layer_3.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L"],
-      'category': "denim",
-      'brand': "H&M",
-      'designer': "Binburhan",
-      'material': "silk",
-      'color': "black"
+      id: 2,
+      name: "Coral top",
+      price: 50,
+      img: "/src/assets/Layer_3.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L"],
+      category: "denim",
+      brand: "H&M",
+      designer: "Binburhan",
+      material: "silk",
+      color: "black"
     },
     {
-      'id': 3,
-      'name': "Beard jacket",
-      'price': 350,
-      'img': "/src/assets/Layer_4.jpg",
-      'availableSizes': ["XXS", "XS", "L", "XL", "XXL"],
-      'category': "jackets",
-      'brand': "H&M",
-      'designer': "Mr. Noname",
-      'material': "wool",
-      'color': "white"
+      id: 3,
+      name: "Beard jacket",
+      price: 350,
+      img: "/src/assets/Layer_4.jpg",
+      availableSizes: ["XXS", "XS", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "H&M",
+      designer: "Mr. Noname",
+      material: "wool",
+      color: "white"
     },
     {
-      'id': 4,
-      'name': "Flower dress",
-      'price': 250,
-      'img': "/src/assets/Layer_5.jpg",
-      'availableSizes': ["XXS", "XS", "S", "XL", "XXL"],
-      'category': "t-shirts",
-      'brand': "H&M",
-      'designer': "Mr. Noname",
-      'material': "linen",
-      'color': "black"
+      id: 4,
+      name: "Flower dress",
+      price: 250,
+      img: "/src/assets/Layer_5.jpg",
+      availableSizes: ["XXS", "XS", "S", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "H&M",
+      designer: "Mr. Noname",
+      material: "linen",
+      color: "black"
     },
     {
-      'id': 5,
-      'name': "Stripy top",
-      'price': 120,
-      'img': "/src/assets/Layer_6.jpg",
-      'availableSizes': ["XXS", "M", "L", "XL", "XXL"],
-      'category': "denim",
-      'brand': "H&M",
-      'designer': "Mr. Unknown",
-      'material': "polyester",
-      'color': "yellow"
+      id: 5,
+      name: "Stripy top",
+      price: 120,
+      img: "/src/assets/Layer_6.jpg",
+      availableSizes: ["XXS", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "H&M",
+      designer: "Mr. Unknown",
+      material: "polyester",
+      color: "yellow"
     },
     {
-      'id': 6,
-      'name': "Grey jacket",
-      'price': 210,
-      'img': "/src/assets/Layer_7.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L"],
-      'category': "jackets",
-      'brand': "H&M",
-      'designer': "Mr. Unknown",
-      'material': "nylon",
-      'color': "red"
+      id: 6,
+      name: "Grey jacket",
+      price: 210,
+      img: "/src/assets/Layer_7.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L"],
+      category: "jackets",
+      brand: "H&M",
+      designer: "Mr. Unknown",
+      material: "nylon",
+      color: "red"
     },
     {
-      'id': 7,
-      'name': "Hipster pants",
-      'price': 80,
-      'img': "/src/assets/Layer_8.jpg",
-      'availableSizes': ["XXS", "XS", "M", "L", "XL", "XXL"],
-      'category': "t-shirts",
-      'brand': "Bershka",
-      'designer': "Mr. Nameless",
-      'material': "cotton",
-      'color': "yellow"
+      id: 7,
+      name: "Hipster pants",
+      price: 80,
+      img: "/src/assets/Layer_8.jpg",
+      availableSizes: ["XXS", "XS", "M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Bershka",
+      designer: "Mr. Nameless",
+      material: "cotton",
+      color: "yellow"
     },
     {
-      'id': 8,
-      'name': "Square kangaroo",
-      'price': 160,
-      'img': "/src/assets/Layer_9.jpg",
-      'availableSizes': ["XS", "S", "M", "L", "XL", "XXL"],
-      'category': "denim",
-      'brand': "Bershka",
-      'designer': "Mr. Nameless",
-      'material': "silk",
-      'color': "red"
+      id: 8,
+      name: "Square kangaroo",
+      price: 160,
+      img: "/src/assets/Layer_9.jpg",
+      availableSizes: ["XS", "S", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "Bershka",
+      designer: "Mr. Nameless",
+      material: "silk",
+      color: "red"
     },
     {
-      'id': 9,
-      'name': "Long top",
-      'price': 90,
-      'img': "/src/assets/2_1.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "jackets",
-      'brand': "Bershka",
-      'designer': "Mr. Anon",
-      'material': "wool",
-      'color': "grey"
+      id: 9,
+      name: "Long top",
+      price: 90,
+      img: "/src/assets/2_1.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Bershka",
+      designer: "Mr. Anon",
+      material: "wool",
+      color: "grey"
     },
     {
-      'id': 10,
-      'name': "Brown coat",
-      'price': 75,
-      'img': "/src/assets/2_2.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "t-shirts",
-      'brand': "Bershka",
-      'designer': "Mr. Anon",
-      'material': "linen",
-      'color': "brown"
+      id: 10,
+      name: "Brown coat",
+      price: 75,
+      img: "/src/assets/2_2.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Bershka",
+      designer: "Mr. Anon",
+      material: "linen",
+      color: "brown"
     },
     {
-      'id': 11,
-      'name': "Beard t-shirt",
-      'price': 115,
-      'img': "/src/assets/2_4.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "XXL"],
-      'category': "denim",
-      'brand': "Bershka",
-      'designer': "Mr. Strange",
-      'material': "polyester",
-      'color': "grey"
+      id: 11,
+      name: "Beard t-shirt",
+      price: 115,
+      img: "/src/assets/2_4.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "XXL"],
+      category: "denim",
+      brand: "Bershka",
+      designer: "Mr. Strange",
+      material: "polyester",
+      color: "grey"
     },
     {
-      'id': 12,
-      'name': "Beard jacket",
-      'price': 170,
-      'img': "/src/assets/2_6.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "jackets",
-      'brand': "Bershka",
-      'designer': "Mr. Strange",
-      'material': "nylon",
-      'color': "brown"
+      id: 12,
+      name: "Beard jacket",
+      price: 170,
+      img: "/src/assets/2_6.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Bershka",
+      designer: "Mr. Strange",
+      material: "nylon",
+      color: "brown"
     },
     {
-      'id': 13,
-      'name': "Brown long top",
-      'price': 85,
-      'img': "/src/assets/2_8.jpg",
-      'availableSizes': ["XXS", "XS"],
-      'category': "t-shirts",
-      'brand': "Stradivarius",
-      'designer': "Junior designer",
-      'material': "cotton",
-      'color': "green"
+      id: 13,
+      name: "Brown long top",
+      price: 85,
+      img: "/src/assets/2_8.jpg",
+      availableSizes: ["XXS", "XS"],
+      category: "t-shirts",
+      brand: "Stradivarius",
+      designer: "Junior designer",
+      material: "cotton",
+      color: "green"
     },
     {
-      'id': 14,
-      'name': "Blue beard t-shirt",
-      'price': 95,
-      'img': "/src/assets/2_9.jpg",
-      'availableSizes': ["XXS", "XS", "S"],
-      'category': "denim",
-      'brand': "Stradivarius",
-      'designer': "Junior designer",
-      'material': "silk",
-      'color': "blue"
+      id: 14,
+      name: "Blue beard t-shirt",
+      price: 95,
+      img: "/src/assets/2_9.jpg",
+      availableSizes: ["XXS", "XS", "S"],
+      category: "denim",
+      brand: "Stradivarius",
+      designer: "Junior designer",
+      material: "silk",
+      color: "blue"
     },
     {
-      'id': 15,
-      'name': "Black suit",
-      'price': 210,
-      'img': "/src/assets/Layer_44.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "jackets",
-      'brand': "Stradivarius",
-      'designer': "Middle designer",
-      'material': "wool",
-      'color': "green"
+      id: 15,
+      name: "Black suit",
+      price: 210,
+      img: "/src/assets/Layer_44.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Stradivarius",
+      designer: "Middle designer",
+      material: "wool",
+      color: "green"
     },
     {
-      'id': 16,
-      'name': "Long skirt",
-      'price': 165,
-      'img': "/src/assets/Layer_45.jpg",
-      'availableSizes': ["XXS", "XS", "S", "L", "XL", "XXL"],
-      'category': "t-shirts",
-      'brand': "Stradivarius",
-      'designer': "Middle designer",
-      'material': "linen",
-      'color': "blue"
+      id: 16,
+      name: "Long skirt",
+      price: 165,
+      img: "/src/assets/Layer_45.jpg",
+      availableSizes: ["XXS", "XS", "S", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Stradivarius",
+      designer: "Middle designer",
+      material: "linen",
+      color: "blue"
     },
     {
-      'id': 17,
-      'name': "Yellow long sleeve",
-      'price': 130,
-      'img': "/src/assets/Layer_46.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "denim",
-      'brand': "Stradivarius",
-      'designer': "Senior designer",
-      'material': "polyester",
-      'color': "orange"
+      id: 17,
+      name: "Yellow long sleeve",
+      price: 130,
+      img: "/src/assets/Layer_46.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "Stradivarius",
+      designer: "Senior designer",
+      material: "polyester",
+      color: "orange"
     },
     {
-      'id': 18,
-      'name': "Black jeans",
-      'price': 260,
-      'img': "/src/assets/Layer_47.jpg",
-      'availableSizes': ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-      'category': "jackets",
-      'brand': "Stradivarius",
-      'designer': "Senior designer",
-      'material': "nylon",
-      'color': "orange"
+      id: 18,
+      name: "Black jeans",
+      price: 260,
+      img: "/src/assets/Layer_47.jpg",
+      availableSizes: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Stradivarius",
+      designer: "Senior designer",
+      material: "nylon",
+      color: "orange"
     }
-  ];
+  ]; // TODO: вместо rest-api для проверки в браузере
 
   export default {
     name: 'CatalogGridProduct',
     props: ['products'],
     data() {
       return {
-        filterRule: {
-          key: '',
-          value: '',
-          isRemoved: false,
+        // filterRule: {
+        //   key: '',
+        //   value: '',
+        //   isRemoved: false,
+        // },
+        // isAlreadyFiltered: false,
+        filterRules: {
+          price: [],
+          availableSizes: [],
+          category: [],
+          brand: [],
+          designer: [],
+          material: [],
+          color: []
         },
         filteredProducts: [],
       };
     },
     methods: {
       filterProducts() {
-        this.filterRule.isRemoved ? this.removeFromFiltered(this.filterRule) : this.addToFiltered(this.filterRule)
-      },
-      removeFromFiltered() {
-        if (this.filteredProducts.length) {
-          this.getFilteredByRuleProducts(this.filterRule).forEach(filteredByRuleProduct => {
-            this.filteredProducts.forEach((product, idx) => {
-              if (filteredByRuleProduct.id === product.id) {
-                this.filteredProducts.splice(idx, 1);
+        let products = this.products.slice();
+        let filteredProducts = [];
+        for (const rule in this.filterRules) {
+          if (this.filterRules.hasOwnProperty(rule) && this.filterRules[rule].length) { //filterProductsByRule
+            products.forEach(product => {
+              if (this.filterRules[rule].includes(product[rule])) {  //isProductInFilter
+                filteredProducts.push(product); //addProductToFiltered
               }
             });
-          });
-        }
-      },
-      addToFiltered() {
-        this.getFilteredByRuleProducts(this.filterRule).forEach(filteredByRuleProduct => {
-          if (this.filteredProducts.length) {
-            if (!this.filteredProducts.some(product => product.id === filteredByRuleProduct.id)) {
-              this.filteredProducts.push(filteredByRuleProduct);
-            }
-          } else {
-            this.filteredProducts.push(filteredByRuleProduct);
+            products = filteredProducts.slice();
+            filteredProducts = [];
           }
-        });
-      },
-      getFilteredByRuleProducts(filterRule) {
-        return this.products.filter(product => product[filterRule.key] === filterRule.value);
+        }
+        return products;
       },
       buyButtonHandler(product) {
         this.$emit('buy', product);
@@ -388,18 +385,16 @@
         this.filteredProducts = this.products;
         event.preventDefault();
       },
-      filterClickHandler(filterRule) {
-        this.filterRule = filterRule;
-        this.filterProducts();
+      filterClickHandler(filterRules) {
+        this.filterRules = filterRules;
+        this.filteredProducts = this.filterProducts();
       },
 
     },
     mounted() {
-      // this.filteredProducts = this.products;
+      this.products = products; // TODO: вместо rest-api для проверки в браузере
 
-      // вместо rest-api для проверки в браузере
-      this.filteredProducts = products;
-      this.products = products;
+      this.filteredProducts = this.filterProducts();
     },
     components: {
       ProductCard,
@@ -412,230 +407,230 @@
   .grid-product
     display: flex
 
-  .grid-product-l
-    width: 25%
+    .grid-product-l
+      width: 25%
 
-  .product-category
-    margin-bottom: 20px
-    width: 20%
+    .product-category
+      margin-bottom: 20px
+      width: 20%
 
-  .options-category
-    color: #6f6e6e
-    box-sizing: border-box
-    text-transform: uppercase
-    line-height: 37px
-    padding: 0 15px
-    font-weight: 700
-    border-bottom: 1px solid #ebebeb
-    border-left: 5px solid #ef5b70
-
-  summary::-webkit-details-marker
-    display: none
-
-  .options-category::before
-    content: '▼'
-    padding-right: 10px
-
-  details[open] > summary::before
-    content: '▲'
-
-  .options-category-list
-    a
+    .options-category
       color: #6f6e6e
-      font-size: 14px
-      line-height: 33px
-      display: block
+      box-sizing: border-box
+      text-transform: uppercase
+      line-height: 37px
+      padding: 0 15px
+      font-weight: 700
+      border-bottom: 1px solid #ebebeb
+      border-left: 5px solid #ef5b70
 
-  .options-category-list
-    a:hover
+    summary::-webkit-details-marker
+      display: none
+
+    .options-category::before
+      content: '▼'
+      padding-right: 10px
+
+    details[open] > summary::before
+      content: '▲'
+
+    .options-category-list
+      a
+        color: #6f6e6e
+        font-size: 14px
+        line-height: 33px
+        display: block
+
+    .options-category-list
+      a:hover
+        color: $colorAccent
+
+    .options-category-list
+      padding-left: 20px
+
+    .options-category-list
+      li
+        list-style-type: none
+
+    .options-category:focus
+      outline-color: transparent
       color: $colorAccent
 
-  .options-category-list
-    padding-left: 20px
+    .options-category:hover
+      color: $colorAccent
 
-  .options-category-list
-    li
-      list-style-type: none
+    .product-parameters
+      display: flex
+      justify-content: space-between
+      margin-bottom: 40px
 
-  .options-category:focus
-    outline-color: transparent
-    color: $colorAccent
-
-  .options-category:hover
-    color: $colorAccent
-
-  .product-parameters
-    display: flex
-    justify-content: space-between
-    margin-bottom: 40px
-
-  .product-parameters-items
-    width: calc(100% / 3)
-    padding: 0 10px
-    box-sizing: border-box
-    color: #6f6e6e
-    font-size: 14px
-    font-weight: 400
-    line-height: 26px
-
-  .product-parameters-items
-    h3
-      color: #6f6e6e
-      font-size: 14px
-      font-weight: 700
-      line-height: 20px
-      text-transform: uppercase
-      margin-bottom: 15px
-
-  .product-parameters-items
-    a
+    .product-parameters-items
+      width: calc(100% / 3)
+      padding: 0 10px
+      box-sizing: border-box
       color: #6f6e6e
       font-size: 14px
       font-weight: 400
       line-height: 26px
 
-  .trending-now
-    a:hover
-      color: $colorAccent
+    .product-parameters-items
+      h3
+        color: #6f6e6e
+        font-size: 14px
+        font-weight: 700
+        line-height: 20px
+        text-transform: uppercase
+        margin-bottom: 15px
 
-  .trending-now-box
-    display: flex
-    width: 200px
+    .product-parameters-items
+      a
+        color: #6f6e6e
+        font-size: 14px
+        font-weight: 400
+        line-height: 26px
 
-  .trending-now-box
-    h5
-      font-size: 14px
-      margin: 0 10px
+    .trending-now
+      a:hover
+        color: $colorAccent
 
-  .form-size
-    label
+    .trending-now-box
+      display: flex
+      width: 200px
+
+    .trending-now-box
+      h5
+        font-size: 14px
+        margin: 0 10px
+
+    .form-size
+      label
+        margin-right: 10px
+        min-width: 50px
+        display: block
+
+    .form-size
+      input
+        margin-right: 5px
+
+    .form-size
+      display: flex
+      flex-wrap: wrap
+
+    #rangePrice
+      width: 100%
+
+    .product-sort
+      background-color: #f3f3f3
+      padding: 10px
+      margin-bottom: 50px
+      display: flex
+
+    .form-product-sort
+      display: flex
       margin-right: 10px
-      min-width: 50px
-      display: block
 
-  .form-size
-    input
-      margin-right: 5px
+    .form-product-sort
+      option
+        display: block
+        color: #6f6e6e
+        font-size: 14px
+        font-weight: 400
+        border: 1px solid #ebebeb
+        box-sizing: border-box
+        background-color: $lightColorAccent
+        line-height: 30px
+        padding: 0 10px
 
-  .form-size
-    display: flex
-    flex-wrap: wrap
+    .form-product-sort
+      p
+        display: block
+        color: #6f6e6e
+        font-size: 14px
+        font-weight: 400
+        border: 1px solid #ebebeb
+        box-sizing: border-box
+        background-color: $lightColorAccent
+        line-height: 30px
+        padding: 0 10px
 
-  #rangePrice
-    width: 100%
+    .form-product-sort
+      select
+        display: block
+        color: #6f6e6e
+        font-size: 14px
+        font-weight: 400
+        border: 1px solid #ebebeb
+        box-sizing: border-box
+        background-color: $lightColorAccent
+        line-height: 30px
+        padding: 0 10px
 
-  .product-sort
-    background-color: #f3f3f3
-    padding: 10px
-    margin-bottom: 50px
-    display: flex
+    .form-product-sort
+      select:hover
+        background: $colorAccent
+        color: $lightColorAccent
 
-  .form-product-sort
-    display: flex
-    margin-right: 10px
+    .outline-color-norm
+      outline-color: transparent
 
-  .form-product-sort
-    option
-      display: block
-      color: #6f6e6e
-      font-size: 14px
-      font-weight: 400
+    select:focus
+      @extend .outline-color-norm
+
+    option:hover
+      @extend .outline-color-norm
+
+    option:focus
+      @extend .outline-color-norm
+
+    .grid-catalogue
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+
+    .product-nav
+      display: flex
+      justify-content: space-between
+      margin-bottom: 100px
+
+    .page-nav
+      display: flex
+      align-items: center
+      padding: 0
+      border-radius: 3px
       border: 1px solid #ebebeb
       box-sizing: border-box
       background-color: $lightColorAccent
-      line-height: 30px
-      padding: 0 10px
 
-  .form-product-sort
-    p
+    .page-nav a
+      color: #c4c4c4
+      font-size: 16px
+      padding: 10px
+      box-sizing: border-box
       display: block
-      color: #6f6e6e
-      font-size: 14px
-      font-weight: 400
-      border: 1px solid #ebebeb
+
+    .page-nav
+      a:hover
+        color: $colorAccent
+
+    .page-nav
+      li
+        display: block
+
+    .btn-view-all
+      border-radius: 3px
+      border: 1px solid #ef5b70
       box-sizing: border-box
       background-color: $lightColorAccent
-      line-height: 30px
-      padding: 0 10px
-
-  .form-product-sort
-    select
-      display: block
-      color: #6f6e6e
-      font-size: 14px
-      font-weight: 400
-      border: 1px solid #ebebeb
-      box-sizing: border-box
-      background-color: $lightColorAccent
-      line-height: 30px
-      padding: 0 10px
-
-  .form-product-sort
-    select:hover
-      background: $colorAccent
-      color: $lightColorAccent
-
-  .outline-color-norm
-    outline-color: transparent
-
-  select:focus
-    @extend .outline-color-norm
-
-  option:hover
-    @extend .outline-color-norm
-
-  option:focus
-    @extend .outline-color-norm
-
-  .grid-catalogue
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-
-  .product-nav
-    display: flex
-    justify-content: space-between
-    margin-bottom: 100px
-
-  .page-nav
-    display: flex
-    align-items: center
-    padding: 0
-    border-radius: 3px
-    border: 1px solid #ebebeb
-    box-sizing: border-box
-    background-color: $lightColorAccent
-
-  .page-nav a
-    color: #c4c4c4
-    font-size: 16px
-    padding: 10px
-    box-sizing: border-box
-    display: block
-
-  .page-nav
-    a:hover
+      padding: 0 50px
+      line-height: 44px
       color: $colorAccent
-
-  .page-nav
-    li
       display: block
+      transition: .3s
 
-  .btn-view-all
-    border-radius: 3px
-    border: 1px solid #ef5b70
-    box-sizing: border-box
-    background-color: $lightColorAccent
-    padding: 0 50px
-    line-height: 44px
-    color: $colorAccent
-    display: block
-    transition: .3s
+    .btn-view-all:hover
+      color: $lightColorAccent
+      background: $colorAccent
 
-  .btn-view-all:hover
-    color: $lightColorAccent
-    background: $colorAccent
-
-  .product-item:nth-child(3n-1):last-child
-    margin-right: 34.73%
+    .product-item:nth-child(3n-1):last-child
+      margin-right: 34.73%
 </style>
