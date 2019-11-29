@@ -2,11 +2,14 @@
   <div class="product-category">
     <details>
       <summary class="options-category">{{ menuItem.key }}</summary>
-      <ul
-          class="options-category-list"
+      <ul class="options-category-list"
           v-for="value in menuItem.value"
-          :key="value"
-      ><li><a @click="filterClickHandler(value, $event)" href="#">{{ value }}</a></li>
+          :key="value">
+        <li><a class="options-category-link"
+              :is-removed="false"
+              @click="filterClickHandler(value, $event)"
+              href="#">{{ value }}</a>
+        </li>
       </ul>
     </details>
   </div>
@@ -18,25 +21,39 @@
     props: ['menuItem'],
     data() {
       return {
-        removedStatus: false,
-      }
+        filterRules: {
+          price: [],
+          availableSizes: [],
+          category: [],
+          brand: [],
+          designer: [],
+          material: [],
+          color: []
+        },
+      };
     },
     methods: {
       filterClickHandler(value, event) {
-        this.$emit('filter', {
-          key: this.menuItem.key,
-          value: value,
-          isRemoved: this.removedStatus,
-        });
-        this.changeColorAccentClass(event);
-        this.removedStatus = !this.removedStatus;
+        if (event.target.isRemoved) {
+          this.filterRules[this.menuItem.key] = this.filterRules[this.menuItem.key].filter(item => item !== value);
+        } else {
+          this.filterRules[this.menuItem.key].push(value);
+        }
+        this.$emit('filter', this.filterRules);
+        // this.$emit('filter', {
+        //   key: this.menuItem.key,
+        //   value: value,
+        //   isRemoved: event.target.isRemoved,
+        // });
+        this.changeActiveClass(event);
+        event.target.isRemoved = !event.target.isRemoved;
         event.preventDefault();
       },
-      changeColorAccentClass(event) {
-        if (this.removedStatus) {
-          event.target.classList.remove('color-accent')
+      changeActiveClass(event) {
+        if (event.target.isRemoved) {
+          event.target.classList.remove('options-category-link-active')
         } else {
-          event.target.classList.add('color-accent');
+          event.target.classList.add('options-category-link-active');
         }
       },
     },
@@ -68,16 +85,17 @@
   details[open] > summary::before
     content: '▲'
 
-  .options-category-list
-    a
+  .options-category-link
       color: #6f6e6e
       font-size: 14px
       line-height: 33px
       display: block
 
-  .options-category-list
-    a:hover
+  .options-category-link:hover
       color: $colorAccent
+
+  .options-category-link-active
+      font-weight: 600
 
   .options-category-list
     padding-left: 20px
@@ -91,8 +109,5 @@
     color: $colorAccent
 
   .options-category:hover
-    color: $colorAccent
-
-  .color-accent
     color: $colorAccent
 </style>

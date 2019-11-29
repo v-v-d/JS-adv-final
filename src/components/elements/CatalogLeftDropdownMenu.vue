@@ -12,7 +12,6 @@
 <script>
   import CatalogLeftDropdownMenuItem from '../elements/CatalogLeftDropdownMenuItem.vue';
 
-  // вместо rest-api для проверки в браузере
   let products = [
     {
       'id': 1,
@@ -230,7 +229,7 @@
       'material': "nylon",
       'color': "orange"
     }
-  ];
+  ]; // TODO: вместо rest-api для проверки в браузере
 
   export default {
     name: "CatalogLeftDropdownMenu",
@@ -265,16 +264,15 @@
         });
         return menuItems;
       },
-      filterClickHandler(filterRule) {
-        this.$emit('filter', filterRule);
+      filterClickHandler(filterRules) {
+        this.$emit('filter', filterRules);
       },
     },
     components: {
       CatalogLeftDropdownMenuItem,
     },
     mounted() {
-      // вместо rest-api для проверки в браузере
-      this.products = products;
+      this.products = products; // TODO: вместо rest-api для проверки в браузере
 
       this.menuItems = this.getMenuItems(this.products, this.menuItemsNames);
     }
