@@ -6,7 +6,6 @@
           v-for="value in menuItem.value"
           :key="value">
         <li><a class="options-category-link"
-              :is-removed="false"
               @click="filterClickHandler(value, $event)"
               href="#">{{ value }}</a>
         </li>
@@ -21,40 +20,27 @@
     props: ['menuItem'],
     data() {
       return {
-        filterRules: {
-          price: [],
-          availableSizes: [],
-          category: [],
-          brand: [],
-          designer: [],
-          material: [],
-          color: []
+        filterRule: {
+          key: null,
+          value: null,
+          isDisabled: null,
         },
       };
     },
     methods: {
       filterClickHandler(value, event) {
-        if (event.target.isRemoved) {
-          this.filterRules[this.menuItem.key] = this.filterRules[this.menuItem.key].filter(item => item !== value);
+        if (event.target.classList.contains('enabled')) {
+          event.target.classList.remove('enabled');
+          this.filterRule.isDisabled = true;
         } else {
-          this.filterRules[this.menuItem.key].push(value);
+          event.target.classList.add('enabled');
+          this.filterRule.isDisabled = false;
         }
-        this.$emit('filter', this.filterRules);
-        // this.$emit('filter', {
-        //   key: this.menuItem.key,
-        //   value: value,
-        //   isRemoved: event.target.isRemoved,
-        // });
-        this.changeActiveClass(event);
-        event.target.isRemoved = !event.target.isRemoved;
+        this.filterRule.key = this.menuItem.key;
+        this.filterRule.value = value;
+
+        this.$emit('filter', this.filterRule);
         event.preventDefault();
-      },
-      changeActiveClass(event) {
-        if (event.target.isRemoved) {
-          event.target.classList.remove('options-category-link-active')
-        } else {
-          event.target.classList.add('options-category-link-active');
-        }
       },
     },
   };
@@ -94,7 +80,7 @@
   .options-category-link:hover
       color: $colorAccent
 
-  .options-category-link-active
+  .enabled
       font-weight: 600
 
   .options-category-list
