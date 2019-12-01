@@ -361,10 +361,10 @@
         }
       },
       filterClickHandler(filterRule) {
-        this.isAlreadyApplied(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
+        this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
         this.filterProducts();
       },
-      isAlreadyApplied(filterRule) {
+      isAlreadyInRules(filterRule) {
         return this.filterRules[filterRule.key].includes(filterRule.value);
       },
       removeRuleFromRules(filterRule) {
