@@ -361,25 +361,21 @@
         }
       },
       filterClickHandler(filterRule) {
-        filterRule.isDisabled ? this.removeRuleFromFilterRules(filterRule) : this.addRuleToFilterRules(filterRule);
+        this.isAlreadyApplied(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
         this.filterProducts();
       },
-      removeRuleFromFilterRules(filterRule) {
+      isAlreadyApplied(filterRule) {
+        return this.filterRules[filterRule.key].includes(filterRule.value);
+      },
+      removeRuleFromRules(filterRule) {
         let ruleIdx = this.getRuleIdx(filterRule);
-        if (ruleIdx >= 0) {
-          this.filterRules[filterRule.key].splice(ruleIdx, 1);
-        }
+        this.filterRules[filterRule.key].splice(ruleIdx, 1);
       },
       getRuleIdx(filterRule) {
         return this.filterRules[filterRule.key].findIndex(rule => rule === filterRule.value);
       },
-      addRuleToFilterRules(filterRule) {
-        if (!this.isAlreadyApplied(filterRule)) {
-          this.filterRules[filterRule.key].push(filterRule.value);
-        }
-      },
-      isAlreadyApplied(filterRule) {
-        return this.filterRules[filterRule.key].includes(filterRule.value);
+      addRuleToRules(filterRule) {
+        this.filterRules[filterRule.key].push(filterRule.value);
       },
       buyButtonHandler(product) {
         this.$emit('buy', product);

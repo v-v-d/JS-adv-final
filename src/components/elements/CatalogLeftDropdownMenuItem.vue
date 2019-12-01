@@ -23,7 +23,6 @@
         filterRule: {
           key: null,
           value: null,
-          isDisabled: null,
         },
       };
     },
@@ -31,10 +30,8 @@
       filterClickHandler(value, event) {
         if (event.target.classList.contains('enabled')) {
           event.target.classList.remove('enabled');
-          this.filterRule.isDisabled = true;
         } else {
           event.target.classList.add('enabled');
-          this.filterRule.isDisabled = false;
         }
         this.filterRule.key = this.menuItem.key;
         this.filterRule.value = value;
