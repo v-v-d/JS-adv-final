@@ -32,14 +32,7 @@
             @filter="filterClickHandler"/>
       </div>
       <div class="product-sort">
-        <form class="form-product-sort">
-          <p>Sort By</p>
-          <select @change="sortByChangeHandler($event)" name="sortBy">
-            <option value="name">name</option>
-            <option value="min first">price: min first</option>
-            <option value="max first">price: max first</option>
-          </select>
-        </form>
+        <CatalogSortBy @sort="sortByChangeHandler"/>
         <form class="form-product-sort">
           <p>Show</p>
           <select name="Show">
@@ -87,6 +80,7 @@
   import CatalogLeftDropdownMenu from '../elements/CatalogLeftDropdownMenu.vue';
   import CatalogSizeMenu from '../elements/CatalogSizeMenu.vue';
   import CatalogRangePrice from '../elements/CatalogRangePrice.vue';
+  import CatalogSortBy from '../elements/CatalogSortBy.vue';
 
   let products = [
     {
@@ -312,7 +306,6 @@
     props: ['products'],
     data() {
       return {
-        smthng: null,
         filterRules: {
           price: [],
           size: [],
@@ -323,6 +316,8 @@
           color: [],
         },
         filteredProducts: [],
+        isSorted: false,
+        sortRule: null,
       };
     },
     methods: {
@@ -334,6 +329,9 @@
           }
         }
         this.filteredProducts = filteredProducts;
+        if (this.isSorted) {
+          this.sortProducts(this.sortRule);
+        }
       },
       isRuleNotEmpty(rule) {
         return this.filterRules[rule].length;
@@ -385,29 +383,50 @@
         this.filteredProducts = this.products;
         event.preventDefault();
       },
-      sortByChangeHandler(event) {
-        this.smthng = event.target.value;
-        switch (event.target.value) {
+      sortByChangeHandler(sortRule) {
+        if (!this.isSorted) {
+          this.isSorted = true;
+        }
+        this.sortRule = sortRule;
+        this.sortProducts(this.sortRule);
+      },
+      sortProducts(sortRule) {
+        switch (sortRule) {
+          case 'in order':
+            this.sortInOrder();
+            break;
           case 'min first':
-            this.filteredProducts.sort((product1, product2) => product1.price - product2.price);
+            this.sortByPriceFromMinToMax();
             break;
           case 'max first':
-            this.filteredProducts.sort((product1, product2) => product2.price - product1.price);
+            this.sortByPriceFromMaxToMin();
             break;
           case 'name':
-            this.filteredProducts.sort((product1, product2) => {
-              let productName1 = product1.name.toUpperCase();
-              let productName2 = product2.name.toUpperCase();
-              if (productName1 < productName2) {
-                return -1;
-              }
-              if (productName1 > productName2) {
-                return 1;
-              }
-              return 0;
-            });
+            this.sortByName();
             break;
         }
+      },
+      sortInOrder() {
+        this.filteredProducts.sort((product1, product2) => product1.id - product2.id);
+      },
+      sortByPriceFromMinToMax() {
+        this.filteredProducts.sort((product1, product2) => product1.price - product2.price);
+      },
+      sortByPriceFromMaxToMin() {
+        this.filteredProducts.sort((product1, product2) => product2.price - product1.price);
+      },
+      sortByName() {
+        this.filteredProducts.sort((product1, product2) => {
+          let productName1 = product1.name.toUpperCase();
+          let productName2 = product2.name.toUpperCase();
+          if (productName1 < productName2) {
+            return -1;
+          }
+          if (productName1 > productName2) {
+            return 1;
+          }
+          return 0;
+        });
       },
     },
     mounted() {
@@ -420,6 +439,7 @@
       CatalogLeftDropdownMenu,
       CatalogSizeMenu,
       CatalogRangePrice,
+      CatalogSortBy,
     },
   };
 </script>
@@ -428,170 +448,170 @@
   .grid-product
     display: flex
 
-    .grid-product-l
-      width: 25%
+  .grid-product-l
+    width: 25%
 
-    .grid-product-r
-      width: 75%
+  .grid-product-r
+    width: 75%
 
-    .product-parameters
-      display: flex
-      justify-content: space-between
-      margin-bottom: 40px
+  .product-parameters
+    display: flex
+    justify-content: space-between
+    margin-bottom: 40px
 
-    .product-parameters-items
-      width: calc(100% / 3)
-      /*padding: 0 10px*/
-      box-sizing: border-box
+  .product-parameters-items
+    width: calc(100% / 3)
+    /*padding: 0 10px*/
+    box-sizing: border-box
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    line-height: 26px
+
+  .product-parameters-items
+    h3
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 700
+      line-height: 20px
+      text-transform: uppercase
+      margin-bottom: 15px
+
+  .product-parameters-items
+    a
       color: #6f6e6e
       font-size: 14px
       font-weight: 400
       line-height: 26px
 
-    .product-parameters-items
-      h3
-        color: #6f6e6e
-        font-size: 14px
-        font-weight: 700
-        line-height: 20px
-        text-transform: uppercase
-        margin-bottom: 15px
+  .trending-now
+    a:hover
+      color: $colorAccent
 
-    .product-parameters-items
-      a
-        color: #6f6e6e
-        font-size: 14px
-        font-weight: 400
-        line-height: 26px
+  .trending-now-box
+    display: flex
+    width: 200px
 
-    .trending-now
-      a:hover
-        color: $colorAccent
+  .trending-now-box
+    h5
+      font-size: 14px
+      margin: 0 10px
 
-    .trending-now-box
-      display: flex
-      width: 200px
+  #rangePrice
+    width: 100%
 
-    .trending-now-box
-      h5
-        font-size: 14px
-        margin: 0 10px
+  .product-sort
+    background-color: #f3f3f3
+    padding: 10px
+    margin-bottom: 50px
+    display: flex
 
-    #rangePrice
-      width: 100%
+  .form-product-sort
+    display: flex
+    margin-right: 10px
 
-    .product-sort
-      background-color: #f3f3f3
-      padding: 10px
-      margin-bottom: 50px
-      display: flex
-
-    .form-product-sort
-      display: flex
-      margin-right: 10px
-
-    .form-product-sort
-      option
-        display: block
-        color: #6f6e6e
-        font-size: 14px
-        font-weight: 400
-        border: 1px solid #ebebeb
-        box-sizing: border-box
-        background-color: $lightColorAccent
-        line-height: 30px
-        padding: 0 10px
-
-    .form-product-sort
-      p
-        display: block
-        color: #6f6e6e
-        font-size: 14px
-        font-weight: 400
-        border: 1px solid #ebebeb
-        box-sizing: border-box
-        background-color: $lightColorAccent
-        line-height: 30px
-        padding: 0 10px
-
-    .form-product-sort
-      select
-        display: block
-        color: #6f6e6e
-        font-size: 14px
-        font-weight: 400
-        border: 1px solid #ebebeb
-        box-sizing: border-box
-        background-color: $lightColorAccent
-        line-height: 30px
-        padding: 0 10px
-
-    .form-product-sort
-      select:hover
-        background: $colorAccent
-        color: $lightColorAccent
-
-    .outline-color-norm
-      outline-color: transparent
-
-    select:focus
-      @extend .outline-color-norm
-
-    option:hover
-      @extend .outline-color-norm
-
-    option:focus
-      @extend .outline-color-norm
-
-    .grid-catalogue
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-between
-
-    .product-nav
-      display: flex
-      justify-content: space-between
-      margin-bottom: 100px
-
-    .page-nav
-      display: flex
-      align-items: center
-      padding: 0
-      border-radius: 3px
+  .form-product-sort
+    option
+      display: block
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
       border: 1px solid #ebebeb
       box-sizing: border-box
       background-color: $lightColorAccent
+      line-height: 30px
+      padding: 0 10px
 
-    .page-nav a
-      color: #c4c4c4
-      font-size: 16px
-      padding: 10px
-      box-sizing: border-box
+  .form-product-sort
+    p
       display: block
-
-    .page-nav
-      a:hover
-        color: $colorAccent
-
-    .page-nav
-      li
-        display: block
-
-    .btn-view-all
-      border-radius: 3px
-      border: 1px solid #ef5b70
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
+      border: 1px solid #ebebeb
       box-sizing: border-box
       background-color: $lightColorAccent
-      padding: 0 50px
-      line-height: 44px
-      color: $colorAccent
+      line-height: 30px
+      padding: 0 10px
+
+  .form-product-sort
+    select
       display: block
-      transition: .3s
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
+      border: 1px solid #ebebeb
+      box-sizing: border-box
+      background-color: $lightColorAccent
+      line-height: 30px
+      padding: 0 10px
 
-    .btn-view-all:hover
-      color: $lightColorAccent
+  .form-product-sort
+    select:hover
       background: $colorAccent
+      color: $lightColorAccent
 
-    .product-item:nth-child(3n-1):last-child
-      margin-right: 34.73%
+  .outline-color-norm
+    outline-color: transparent
+
+  select:focus
+    @extend .outline-color-norm
+
+  option:hover
+    @extend .outline-color-norm
+
+  option:focus
+    @extend .outline-color-norm
+
+  .grid-catalogue
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  .product-nav
+    display: flex
+    justify-content: space-between
+    margin-bottom: 100px
+
+  .page-nav
+    display: flex
+    align-items: center
+    padding: 0
+    border-radius: 3px
+    border: 1px solid #ebebeb
+    box-sizing: border-box
+    background-color: $lightColorAccent
+
+  .page-nav a
+    color: #c4c4c4
+    font-size: 16px
+    padding: 10px
+    box-sizing: border-box
+    display: block
+
+  .page-nav
+    a:hover
+      color: $colorAccent
+
+  .page-nav
+    li
+      display: block
+
+  .btn-view-all
+    border-radius: 3px
+    border: 1px solid #ef5b70
+    box-sizing: border-box
+    background-color: $lightColorAccent
+    padding: 0 50px
+    line-height: 44px
+    color: $colorAccent
+    display: block
+    transition: .3s
+
+  .btn-view-all:hover
+    color: $lightColorAccent
+    background: $colorAccent
+
+  .product-item:nth-child(3n-1):last-child
+    margin-right: 34.73%
 </style>

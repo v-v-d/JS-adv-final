@@ -63,7 +63,7 @@
       },
     },
     computed: {
-      getPriceRange() {
+      getPriceRange() { // TODO: пока диапазон цен захардкожен этот метод не применяется
         let prices = [];
         this.products.forEach(product => {
           prices.push(product.price);
