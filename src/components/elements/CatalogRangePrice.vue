@@ -3,13 +3,7 @@
     <h3>{{ parameterName }}</h3>
     <vue-slider
         v-model="value"
-        :min="0"
-        :max="1000"
-        :interval="1"
-        :tooltip="'none'"
-        :contained='true'
-        :drag-on-click="true"
-        :process-style="{ backgroundColor: '#f16d7f' }"
+        v-bind="options"
         @change="changeRangeHandler"
     >
       <template v-slot:dot="{ value, focus }">
@@ -24,11 +18,14 @@
 </template>
 
 <script>
+  'use strict';
+
   import VueSlider from 'vue-slider-component'
   import 'vue-slider-component/theme/default.css'
 
   export default {
     name: "CatalogRangePrice",
+    props: ['products'],
     data: function () {
       return {
         parameterName: 'Price',
@@ -36,10 +33,26 @@
           key: null,
           value: null,
         },
+        // priceRange: this.getPriceRange,
         options: {
           height: 6,
+          // min: this.getPriceRange.min,
+          // max: this.getPriceRange.max,
+          min: 50, // TODO: разобраться
+          max: 350, // TODO: разобраться
+          interval: 1,
+          lazy: true,
+          tooltipPlacement: 'bottom',
+          dragOnClick: true,
+          processStyle: {backgroundColor: '#f16d7f'},
+          railStyle: {backgroundColor: '#f0f0f0'},
+          tooltipStyle: {
+            backgroundColor: '#f16d7f',
+            borderColor: '#f16d7f'
+          },
         },
-        value: [0, 1000],
+        // value: [this.priceRange.min, this.priceRange.max],
+        value: [100, 200], // TODO: разобраться
       };
     },
     methods: {
@@ -49,8 +62,17 @@
         this.$emit('filter', this.filterRule);
       },
     },
+    computed: {
+      getPriceRange() {
+        let prices = [];
+        this.products.forEach(product => {
+          prices.push(product.price);
+        });
+        return {min: Math.min(...prices), max: Math.max(...prices)}
+      },
+    },
     components: {
-      VueSlider,
+      VueSlider, //asd
     },
   };
 </script>
@@ -84,7 +106,7 @@
   .range-values
     display: flex
     justify-content: space-between
-    margin-top: 7px
+    margin-top: 5px
     font-size: 14px
 
   .custom-dot

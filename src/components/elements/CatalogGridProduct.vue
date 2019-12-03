@@ -27,16 +27,9 @@
           </div>
         </article>
         <CatalogSizeMenu @filter="filterClickHandler"/>
-        <article class="product-parameters-items">
-          <h3>Price</h3>
-          <form oninput="result.value=rangePrice.value">
-            <input name="range" id="rangePrice" type="range" value="100" step="1" min="10" max="1000">
-            <br>
-            $
-            <output name="result" for="rangePrice">0</output>
-          </form>
-
-        </article>
+        <CatalogRangePrice
+            :products="products"
+            @filter="filterClickHandler"/>
       </div>
       <div class="product-sort">
         <form class="form-product-sort">
@@ -94,6 +87,7 @@
   import ProductCard from '../elements/ProductCard.vue';
   import CatalogLeftDropdownMenu from '../elements/CatalogLeftDropdownMenu.vue';
   import CatalogSizeMenu from '../elements/CatalogSizeMenu.vue';
+  import CatalogRangePrice from '../elements/CatalogRangePrice.vue';
 
   let products = [
     {
@@ -354,14 +348,21 @@
         return filteredProducts;
       },
       isProductMatchTheRule(product, rule) {
-        if (Array.isArray(product[rule])) {
+        if (rule === 'price') { // TODO: попробовать реализовать без хардкода
+          return this.filterRules[rule][0] <= product[rule] && product[rule] <= this.filterRules[rule][1];
+        }
+        if (product[rule] instanceof Array) {
           return this.filterRules[rule].every(item => product[rule].includes(item));
         } else {
           return this.filterRules[rule].includes(product[rule]);
         }
       },
       filterClickHandler(filterRule) {
-        this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
+        if (filterRule.key === 'price') { // TODO: попробовать реализовать без хардкода
+          this.filterRules[filterRule.key] = filterRule.value;
+        } else {
+          this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
+        }
         this.filterProducts();
       },
       isAlreadyInRules(filterRule) {
@@ -394,6 +395,7 @@
       ProductCard,
       CatalogLeftDropdownMenu,
       CatalogSizeMenu,
+      CatalogRangePrice,
     },
   };
 </script>
@@ -405,6 +407,9 @@
   .grid-product-l
     width: 25%
 
+  .grid-product-r
+    width: 75%
+
   .product-parameters
     display: flex
     justify-content: space-between
@@ -412,7 +417,7 @@
 
   .product-parameters-items
     width: calc(100% / 3)
-    padding: 0 10px
+    /*padding: 0 10px*/
     box-sizing: border-box
     color: #6f6e6e
     font-size: 14px
