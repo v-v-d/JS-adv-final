@@ -119,7 +119,7 @@
     position: absolute
     border: #e8e8e8 1px solid
     margin-top: -10px
-    z-index: 1
+    z-index: 10
 
   .mega-menu-box:before
     position: absolute

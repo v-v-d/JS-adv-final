@@ -283,7 +283,7 @@
     background: $lightColorAccent
     width: 262px
     border-radius: 5px
-    z-index: 1
+    z-index: 10
     border: #e8e8e8 1px solid
     padding: 15px
     text-transform: uppercase
