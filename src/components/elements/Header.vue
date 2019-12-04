@@ -115,7 +115,7 @@
     name: 'Header',
     data() {
       return {
-        buttonName: 'My Account', // TODO: убрать хардкод
+        buttonName: 'My Account',
       };
     },
     components: {

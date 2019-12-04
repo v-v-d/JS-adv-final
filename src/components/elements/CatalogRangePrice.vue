@@ -72,7 +72,7 @@
       },
     },
     components: {
-      VueSlider, //asd
+      VueSlider,
     },
   };
 </script>

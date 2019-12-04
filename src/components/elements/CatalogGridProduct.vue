@@ -35,8 +35,10 @@
         <CatalogSortBy @sort="sortByChangeHandler"/>
         <form class="form-product-sort">
           <p>Show</p>
-          <select @click="productsPerPageClickHandler(+$event.target.value)" name="Show">
-            <option v-for="productNum in productsPerPageRange"
+          <select
+              @click="productsPerPageClickHandler(+$event.target.value)"
+              name="Show"
+          ><option v-for="productNum in productsPerPageRange"
                     :key="productNum.id"
                     :value="productNum.value"
             >{{ productNum.value }}</option>
@@ -44,7 +46,10 @@
         </form>
       </div>
 
-      <div class="grid-catalogue">
+      <div
+          class="grid-catalogue"
+          v-if="paginatedProducts.length"
+      >
         <ProductCard
             v-for="product in paginatedProducts"
             :key="product.id"
@@ -55,9 +60,17 @@
             @buy="buyButtonHandler(product)"
         />
       </div>
+      <div
+          class="grid-catalogue"
+          v-else
+      ><h4 class="no-products">No products matching your filter</h4>
+      </div>
 
       <div class="product-nav">
-        <ul class="page-nav">
+        <ul
+            class="page-nav"
+            v-if="paginatedProducts.length"
+        >
           <li v-for="page in paginator"
               :key="page.value"
           ><a :class="{active: page.isActive}"
@@ -65,7 +78,12 @@
               href="#">{{ page.value }}
           </a></li>
         </ul>
-        <a @click.prevent="buttonViewAllHandler" class="btn-view-all" href="#">View All</a>
+        <a
+            v-if="paginatedProducts.length"
+            @click.prevent="buttonViewAllHandler"
+            class="btn-view-all"
+            href="#"
+        >View All</a>
       </div>
 
     </div>
@@ -79,224 +97,224 @@
   import CatalogRangePrice from '../elements/CatalogRangePrice.vue';
   import CatalogSortBy from '../elements/CatalogSortBy.vue';
 
-  // let products = [
-  //   {
-  //     id: 1,
-  //     name: "Marina t-shirt",
-  //     price: 150,
-  //     img: "/src/assets/Layer_2.jpg",
-  //     size: ["M", "L", "XL", "XXL"],
-  //     category: "t-shirts",
-  //     brand: "H&M",
-  //     designer: "Binburhan",
-  //     material: "cotton",
-  //     color: "white"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Coral top",
-  //     price: 50,
-  //     img: "/src/assets/Layer_3.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L"],
-  //     category: "denim",
-  //     brand: "H&M",
-  //     designer: "Binburhan",
-  //     material: "silk",
-  //     color: "black"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Beard jacket",
-  //     price: 350,
-  //     img: "/src/assets/Layer_4.jpg",
-  //     size: ["XXS", "XS", "L", "XL", "XXL"],
-  //     category: "jackets",
-  //     brand: "H&M",
-  //     designer: "Mr. Noname",
-  //     material: "wool",
-  //     color: "white"
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Flower dress",
-  //     price: 250,
-  //     img: "/src/assets/Layer_5.jpg",
-  //     size: ["XXS", "XS", "S", "XL", "XXL"],
-  //     category: "t-shirts",
-  //     brand: "H&M",
-  //     designer: "Mr. Noname",
-  //     material: "linen",
-  //     color: "black"
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Stripy top",
-  //     price: 120,
-  //     img: "/src/assets/Layer_6.jpg",
-  //     size: ["XXS", "M", "L", "XL", "XXL"],
-  //     category: "denim",
-  //     brand: "H&M",
-  //     designer: "Mr. Unknown",
-  //     material: "polyester",
-  //     color: "yellow"
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Grey jacket",
-  //     price: 210,
-  //     img: "/src/assets/Layer_7.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L"],
-  //     category: "jackets",
-  //     brand: "H&M",
-  //     designer: "Mr. Unknown",
-  //     material: "nylon",
-  //     color: "red"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Hipster pants",
-  //     price: 80,
-  //     img: "/src/assets/Layer_8.jpg",
-  //     size: ["XXS", "XS", "M", "L", "XL", "XXL"],
-  //     category: "t-shirts",
-  //     brand: "Bershka",
-  //     designer: "Mr. Nameless",
-  //     material: "cotton",
-  //     color: "yellow"
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Square kangaroo",
-  //     price: 160,
-  //     img: "/src/assets/Layer_9.jpg",
-  //     size: ["XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "denim",
-  //     brand: "Bershka",
-  //     designer: "Mr. Nameless",
-  //     material: "silk",
-  //     color: "red"
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Long top",
-  //     price: 90,
-  //     img: "/src/assets/2_1.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "jackets",
-  //     brand: "Bershka",
-  //     designer: "Mr. Anon",
-  //     material: "wool",
-  //     color: "grey"
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Brown coat",
-  //     price: 75,
-  //     img: "/src/assets/2_2.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "t-shirts",
-  //     brand: "Bershka",
-  //     designer: "Mr. Anon",
-  //     material: "linen",
-  //     color: "brown"
-  //   },
-  //   {
-  //     id: 11,
-  //     name: "Beard t-shirt",
-  //     price: 115,
-  //     img: "/src/assets/2_4.jpg",
-  //     size: ["XXS", "XS", "S", "M", "XXL"],
-  //     category: "denim",
-  //     brand: "Bershka",
-  //     designer: "Mr. Strange",
-  //     material: "polyester",
-  //     color: "grey"
-  //   },
-  //   {
-  //     id: 12,
-  //     name: "Beard jacket",
-  //     price: 170,
-  //     img: "/src/assets/2_6.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "jackets",
-  //     brand: "Bershka",
-  //     designer: "Mr. Strange",
-  //     material: "nylon",
-  //     color: "brown"
-  //   },
-  //   {
-  //     id: 13,
-  //     name: "Brown long top",
-  //     price: 85,
-  //     img: "/src/assets/2_8.jpg",
-  //     size: ["XXS", "XS"],
-  //     category: "t-shirts",
-  //     brand: "Stradivarius",
-  //     designer: "Junior designer",
-  //     material: "cotton",
-  //     color: "green"
-  //   },
-  //   {
-  //     id: 14,
-  //     name: "Blue beard t-shirt",
-  //     price: 95,
-  //     img: "/src/assets/2_9.jpg",
-  //     size: ["XXS", "XS", "S"],
-  //     category: "denim",
-  //     brand: "Stradivarius",
-  //     designer: "Junior designer",
-  //     material: "silk",
-  //     color: "blue"
-  //   },
-  //   {
-  //     id: 15,
-  //     name: "Black suit",
-  //     price: 210,
-  //     img: "/src/assets/Layer_44.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "jackets",
-  //     brand: "Stradivarius",
-  //     designer: "Middle designer",
-  //     material: "wool",
-  //     color: "green"
-  //   },
-  //   {
-  //     id: 16,
-  //     name: "Long skirt",
-  //     price: 165,
-  //     img: "/src/assets/Layer_45.jpg",
-  //     size: ["XXS", "XS", "S", "L", "XL", "XXL"],
-  //     category: "t-shirts",
-  //     brand: "Stradivarius",
-  //     designer: "Middle designer",
-  //     material: "linen",
-  //     color: "blue"
-  //   },
-  //   {
-  //     id: 17,
-  //     name: "Yellow long sleeve",
-  //     price: 130,
-  //     img: "/src/assets/Layer_46.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "denim",
-  //     brand: "Stradivarius",
-  //     designer: "Senior designer",
-  //     material: "polyester",
-  //     color: "orange"
-  //   },
-  //   {
-  //     id: 18,
-  //     name: "Black jeans",
-  //     price: 260,
-  //     img: "/src/assets/Layer_47.jpg",
-  //     size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
-  //     category: "jackets",
-  //     brand: "Stradivarius",
-  //     designer: "Senior designer",
-  //     material: "nylon",
-  //     color: "orange"
-  //   }
-  // ]; // TODO: вместо rest-api для проверки в браузере
+  let products = [
+    {
+      id: 1,
+      name: "Marina t-shirt",
+      price: 150,
+      img: "/src/assets/Layer_2.jpg",
+      size: ["M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "H&M",
+      designer: "Binburhan",
+      material: "cotton",
+      color: "white"
+    },
+    {
+      id: 2,
+      name: "Coral top",
+      price: 50,
+      img: "/src/assets/Layer_3.jpg",
+      size: ["XXS", "XS", "S", "M", "L"],
+      category: "denim",
+      brand: "H&M",
+      designer: "Binburhan",
+      material: "silk",
+      color: "black"
+    },
+    {
+      id: 3,
+      name: "Beard jacket",
+      price: 350,
+      img: "/src/assets/Layer_4.jpg",
+      size: ["XXS", "XS", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "H&M",
+      designer: "Mr. Noname",
+      material: "wool",
+      color: "white"
+    },
+    {
+      id: 4,
+      name: "Flower dress",
+      price: 250,
+      img: "/src/assets/Layer_5.jpg",
+      size: ["XXS", "XS", "S", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "H&M",
+      designer: "Mr. Noname",
+      material: "linen",
+      color: "black"
+    },
+    {
+      id: 5,
+      name: "Stripy top",
+      price: 120,
+      img: "/src/assets/Layer_6.jpg",
+      size: ["XXS", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "H&M",
+      designer: "Mr. Unknown",
+      material: "polyester",
+      color: "yellow"
+    },
+    {
+      id: 6,
+      name: "Grey jacket",
+      price: 210,
+      img: "/src/assets/Layer_7.jpg",
+      size: ["XXS", "XS", "S", "M", "L"],
+      category: "jackets",
+      brand: "H&M",
+      designer: "Mr. Unknown",
+      material: "nylon",
+      color: "red"
+    },
+    {
+      id: 7,
+      name: "Hipster pants",
+      price: 80,
+      img: "/src/assets/Layer_8.jpg",
+      size: ["XXS", "XS", "M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Bershka",
+      designer: "Mr. Nameless",
+      material: "cotton",
+      color: "yellow"
+    },
+    {
+      id: 8,
+      name: "Square kangaroo",
+      price: 160,
+      img: "/src/assets/Layer_9.jpg",
+      size: ["XS", "S", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "Bershka",
+      designer: "Mr. Nameless",
+      material: "silk",
+      color: "red"
+    },
+    {
+      id: 9,
+      name: "Long top",
+      price: 90,
+      img: "/src/assets/2_1.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Bershka",
+      designer: "Mr. Anon",
+      material: "wool",
+      color: "grey"
+    },
+    {
+      id: 10,
+      name: "Brown coat",
+      price: 75,
+      img: "/src/assets/2_2.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Bershka",
+      designer: "Mr. Anon",
+      material: "linen",
+      color: "brown"
+    },
+    {
+      id: 11,
+      name: "Beard t-shirt",
+      price: 115,
+      img: "/src/assets/2_4.jpg",
+      size: ["XXS", "XS", "S", "M", "XXL"],
+      category: "denim",
+      brand: "Bershka",
+      designer: "Mr. Strange",
+      material: "polyester",
+      color: "grey"
+    },
+    {
+      id: 12,
+      name: "Beard jacket",
+      price: 170,
+      img: "/src/assets/2_6.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Bershka",
+      designer: "Mr. Strange",
+      material: "nylon",
+      color: "brown"
+    },
+    {
+      id: 13,
+      name: "Brown long top",
+      price: 85,
+      img: "/src/assets/2_8.jpg",
+      size: ["XXS", "XS"],
+      category: "t-shirts",
+      brand: "Stradivarius",
+      designer: "Junior designer",
+      material: "cotton",
+      color: "green"
+    },
+    {
+      id: 14,
+      name: "Blue beard t-shirt",
+      price: 95,
+      img: "/src/assets/2_9.jpg",
+      size: ["XXS", "XS", "S"],
+      category: "denim",
+      brand: "Stradivarius",
+      designer: "Junior designer",
+      material: "silk",
+      color: "blue"
+    },
+    {
+      id: 15,
+      name: "Black suit",
+      price: 210,
+      img: "/src/assets/Layer_44.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Stradivarius",
+      designer: "Middle designer",
+      material: "wool",
+      color: "green"
+    },
+    {
+      id: 16,
+      name: "Long skirt",
+      price: 165,
+      img: "/src/assets/Layer_45.jpg",
+      size: ["XXS", "XS", "S", "L", "XL", "XXL"],
+      category: "t-shirts",
+      brand: "Stradivarius",
+      designer: "Middle designer",
+      material: "linen",
+      color: "blue"
+    },
+    {
+      id: 17,
+      name: "Yellow long sleeve",
+      price: 130,
+      img: "/src/assets/Layer_46.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "denim",
+      brand: "Stradivarius",
+      designer: "Senior designer",
+      material: "polyester",
+      color: "orange"
+    },
+    {
+      id: 18,
+      name: "Black jeans",
+      price: 260,
+      img: "/src/assets/Layer_47.jpg",
+      size: ["XXS", "XS", "S", "M", "L", "XL", "XXL"],
+      category: "jackets",
+      brand: "Stradivarius",
+      designer: "Senior designer",
+      material: "nylon",
+      color: "orange"
+    }
+  ]; // TODO: вместо rest-api для проверки в браузере
 
   export default {
     name: 'CatalogGridProduct',
@@ -316,7 +334,7 @@
         isSorted: false,
         sortRule: null,
         paginatedProducts: [],
-        currentPage: 1,
+        currentPage: null,
         productsPerPage: 3,
         productsPerPageRange: [
           {id: 1, value: 3},
@@ -354,7 +372,7 @@
         return filteredProducts;
       },
       isProductMatchTheRule(product, rule) {
-        if (rule === 'price') { // TODO: попробовать реализовать без хардкода
+        if (rule === 'price') {
           return this.filterRules[rule][0] <= product[rule] && product[rule] <= this.filterRules[rule][1];
         }
         if (product[rule] instanceof Array) {
@@ -404,9 +422,18 @@
       },
 
       setPagination() {
+        this.currentPage = 1;
         this.setPaginatedProducts();
         this.setTotalPages();
         this.setPaginator();
+        this.setCurrentPageActiveStatus(true);
+      },
+      setPaginatedProducts() {
+        let lastProductIdx = this.productsPerPage * this.currentPage;
+        this.paginatedProducts = this.filteredProducts.slice(lastProductIdx - this.productsPerPage, lastProductIdx);
+      },
+      setTotalPages() {
+        this.totalPages = this.filteredProducts.length ? Math.ceil(this.filteredProducts.length / this.productsPerPage) : 1;
       },
       setPaginator() {
         this.paginator = [];
@@ -414,21 +441,18 @@
           this.paginator.push(
             {
               value: char,
-              isActive: char === 1,
+              isActive: false,
             }
           );
         });
       },
-      setPaginatedProducts() {
-        let lastProductIdx = this.productsPerPage * this.currentPage;
-        this.paginatedProducts = this.filteredProducts.slice(lastProductIdx - this.productsPerPage, lastProductIdx);
-      },
-      setTotalPages() {
-        this.totalPages = Math.ceil(this.filteredProducts.length / this.productsPerPage);
+      setCurrentPageActiveStatus(status) {
+        let pageIdx = this.paginator.findIndex(page => page.value === this.currentPage);
+        this.paginator[pageIdx].isActive = status;
       },
 
       filterClickHandler(filterRule) {
-        if (filterRule.key === 'price') { // TODO: попробовать реализовать без хардкода
+        if (filterRule.key === 'price') {
           this.filterRules[filterRule.key] = filterRule.value;
         } else {
           this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
@@ -463,11 +487,7 @@
         this.setCurrentPageActiveStatus(false);
         this.setPageAsCurrent(pageValue);
         this.setCurrentPageActiveStatus(true);
-        this.setPagination();
-      },
-      setCurrentPageActiveStatus(status) {
-        let pageIdx = this.paginator.findIndex(page => page.value === this.currentPage);
-        this.paginator[pageIdx].isActive = status;
+        this.setPaginatedProducts();
       },
       setPageAsCurrent(pageValue) {
         switch (pageValue) {
@@ -491,14 +511,21 @@
       },
 
       productsPerPageClickHandler(productsNum) {
-        this.productsPerPage = productsNum;
-        this.setPagination();
+        if (productsNum !== this.productsPerPage) {
+          this.productsPerPage = productsNum;
+          this.setPagination();
+        }
       },
 
       buttonViewAllHandler() {
-        this.productsPerPage = this.filteredProducts.length;
-        this.setPagination();
+        if (!this.isAllProductsDisplayed()) {
+          this.productsPerPage = this.filteredProducts.length;
+          this.setPagination();
+        }
       },
+      isAllProductsDisplayed() {
+        return this.productsPerPage === this.filteredProducts.length;
+      }
     },
     computed: {
       paginatorChars() {
@@ -507,12 +534,10 @@
       },
     },
     mounted() {
-      // this.products = products; // TODO: вместо rest-api для проверки в браузере
+      this.products = products; // TODO: вместо rest-api для проверки в браузере
 
       this.filterProducts();
-      this.setPaginatedProducts();
-      this.setTotalPages();
-      this.setPaginator();
+      this.setPagination();
     },
     components: {
       ProductCard,
@@ -541,7 +566,6 @@
 
   .product-parameters-items
     width: calc(100% / 3)
-    /*padding: 0 10px*/
     box-sizing: border-box
     color: #6f6e6e
     font-size: 14px
@@ -700,4 +724,8 @@
 
   .product-item:nth-child(3n-1):last-child
     margin-right: 34.73%
+
+  .no-products
+    margin-bottom: 422px
+    margin-left: 20px
 </style>
