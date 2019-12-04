@@ -1,18 +1,15 @@
 <template>
-  <a class="button" href="#">{{ buttonName }}</a>
+  <router-link class="button" :to="`${buttonSrc}`">{{ buttonName }}</router-link>
 </template>
 
 <script>
   export default {
     name: 'Button',
-    props: ['buttonName'],
+    props: ['buttonSrc', 'buttonName'],
   };
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $lightColorAccent: #ffffff
-
   .button
     background: $colorAccent
     color: $lightColorAccent

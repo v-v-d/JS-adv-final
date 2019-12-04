@@ -83,14 +83,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
-  .content
-    width: 1140px
-    margin: 0 auto
-
   .menu
     display: flex
     justify-content: center

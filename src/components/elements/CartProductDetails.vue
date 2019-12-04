@@ -130,10 +130,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .head-product-details
     display: flex
     color: $darkColorAccent
@@ -184,7 +180,7 @@
   .product-details-item
     .product-cart-mini
       display: flex
-      justify-content: start
+      justify-content: flex-start
 
   .product-details-item
     .characteristics

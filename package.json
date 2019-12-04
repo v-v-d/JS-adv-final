@@ -5,12 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "rest-api": "json-server -w ./server/api/db.json -s ./dist"
   },
   "dependencies": {
     "core-js": "^3.3.2",
     "vue": "^2.6.10",
-    "vue-router": "^3.1.3"
+    "vue-router": "^3.1.3",
+    "vue-slider-component": "^3.0.44"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",

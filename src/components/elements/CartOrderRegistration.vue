@@ -43,10 +43,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .box-order-registration
     display: flex
     justify-content: space-between

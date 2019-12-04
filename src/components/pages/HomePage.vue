@@ -4,7 +4,7 @@
     <NavBar/>
     <HomePageSlider />
     <HomePagePromoBox />
-    <HomePageCatalogueContent />
+    <HomePageCatalogueContent :products="products" @buy="buyButtonHandler"/>
     <HomePageFeature />
     <Footer />
   </div>
@@ -21,6 +21,12 @@
 
   export default {
     name: 'HomePage',
+    props: ['products'],
+    methods: {
+      buyButtonHandler(product) {
+        this.$emit('buy', product);
+      },
+    },
     components: {
       Header,
       NavBar,

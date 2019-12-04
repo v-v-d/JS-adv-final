@@ -1,8 +1,8 @@
 <template>
-  <a class="logo" href="#">
+  <router-link class="logo" to="/">
     <img class="logo-img" src="../../assets/logo.png" alt="logo">
     <span class="brand-name">BRAN<span class="color-accent">D</span></span>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -12,9 +12,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-
   .logo
     display: flex
     align-items: center

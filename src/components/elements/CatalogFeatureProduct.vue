@@ -36,10 +36,6 @@
 </script>
 
 <style lang="sass">
-  $colorAccent: #f16d7f
-  $darkColorAccent: #222222
-  $lightColorAccent: #ffffff
-
   .feature-product
     background-color: $darkColorAccent
     padding: 100px 0
