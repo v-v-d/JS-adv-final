@@ -52,7 +52,7 @@
           },
         },
         // value: [this.priceRange.min, this.priceRange.max],
-        value: [100, 200], // TODO: разобраться
+        value: [50, 350], // TODO: разобраться
       };
     },
     methods: {
