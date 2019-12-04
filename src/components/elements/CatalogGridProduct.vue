@@ -46,7 +46,7 @@
 
       <div class="grid-catalogue">
         <ProductCard
-            v-for="product in filteredProducts"
+            v-for="product in paginatedProducts"
             :key="product.id"
             :id="product.id"
             :img="product.img"
@@ -58,15 +58,12 @@
 
       <div class="product-nav">
         <ul class="page-nav">
-          <li><a href="#">&#10094;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">6</a></li>
-          <li><a href="#">7</a></li>
-          <li><a href="#">&#10095;</a></li>
+          <li v-for="page in paginator"
+              :key="page.value"
+          ><a :class="{active: page.isActive}"
+              @click.prevent="pageNumberClickHandler(page.value)"
+              href="#">{{ page.value }}
+          </a></li>
         </ul>
         <a @click="buttonViewAllHandler" class="btn-view-all" href="#">View All</a>
       </div>
@@ -318,6 +315,11 @@
         filteredProducts: [],
         isSorted: false,
         sortRule: null,
+        paginatedProducts: [],
+        currentPage: 1,
+        productsPerPage: 3,
+        totalPages: null,
+        paginator: [],
       };
     },
     methods: {
@@ -355,41 +357,7 @@
           return this.filterRules[rule].includes(product[rule]);
         }
       },
-      filterClickHandler(filterRule) {
-        if (filterRule.key === 'price') { // TODO: попробовать реализовать без хардкода
-          this.filterRules[filterRule.key] = filterRule.value;
-        } else {
-          this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
-        }
-        this.filterProducts();
-      },
-      isAlreadyInRules(filterRule) {
-        return this.filterRules[filterRule.key].includes(filterRule.value);
-      },
-      removeRuleFromRules(filterRule) {
-        let ruleIdx = this.getRuleIdx(filterRule);
-        this.filterRules[filterRule.key].splice(ruleIdx, 1);
-      },
-      getRuleIdx(filterRule) {
-        return this.filterRules[filterRule.key].findIndex(rule => rule === filterRule.value);
-      },
-      addRuleToRules(filterRule) {
-        this.filterRules[filterRule.key].push(filterRule.value);
-      },
-      buyButtonHandler(product) {
-        this.$emit('buy', product);
-      },
-      buttonViewAllHandler(event) {
-        this.filteredProducts = this.products;
-        event.preventDefault();
-      },
-      sortByChangeHandler(sortRule) {
-        if (!this.isSorted) {
-          this.isSorted = true;
-        }
-        this.sortRule = sortRule;
-        this.sortProducts(this.sortRule);
-      },
+
       sortProducts(sortRule) {
         switch (sortRule) {
           case 'in order':
@@ -428,11 +396,105 @@
           return 0;
         });
       },
+
+      getPaginator() {
+        this.paginatorChars.forEach(char => {
+          this.paginator.push(
+            {
+              value: char,
+              isActive: char === 1,
+            }
+          );
+        });
+      },
+      setPaginatedProducts() {
+        let lastProductIdx = this.productsPerPage * this.currentPage;
+        this.paginatedProducts = this.filteredProducts.slice(lastProductIdx - this.productsPerPage, lastProductIdx);
+      },
+      setTotalPages() {
+        this.totalPages = Math.round(this.filteredProducts.length / this.productsPerPage);
+      },
+
+      filterClickHandler(filterRule) {
+        if (filterRule.key === 'price') { // TODO: попробовать реализовать без хардкода
+          this.filterRules[filterRule.key] = filterRule.value;
+        } else {
+          this.isAlreadyInRules(filterRule) ? this.removeRuleFromRules(filterRule) : this.addRuleToRules(filterRule);
+        }
+        this.filterProducts();
+      },
+      isAlreadyInRules(filterRule) {
+        return this.filterRules[filterRule.key].includes(filterRule.value);
+      },
+      removeRuleFromRules(filterRule) {
+        let ruleIdx = this.getRuleIdx(filterRule);
+        this.filterRules[filterRule.key].splice(ruleIdx, 1);
+      },
+      getRuleIdx(filterRule) {
+        return this.filterRules[filterRule.key].findIndex(rule => rule === filterRule.value);
+      },
+      addRuleToRules(filterRule) {
+        this.filterRules[filterRule.key].push(filterRule.value);
+      },
+
+      sortByChangeHandler(sortRule) {
+        if (!this.isSorted) {
+          this.isSorted = true;
+        }
+        this.sortRule = sortRule;
+        this.sortProducts(this.sortRule);
+        this.setPaginatedProducts();
+      },
+
+      pageNumberClickHandler(pageValue) {
+        this.setCurrentPageActiveStatus(false);
+        this.setPageAsCurrent(pageValue);
+        this.setCurrentPageActiveStatus(true);
+        this.setPaginatedProducts();
+      },
+      setCurrentPageActiveStatus(status) {
+        let pageIdx = this.paginator.findIndex(page => page.value === this.currentPage);
+        this.paginator[pageIdx].isActive = status;
+      },
+      setPageAsCurrent(pageValue) {
+        switch (pageValue) {
+          case '<':
+            if (this.currentPage > 1) {
+              this.currentPage--;
+            }
+            break;
+          case '>':
+            if (this.currentPage < this.totalPages) {
+              this.currentPage++;
+            }
+            break;
+          default:
+            this.currentPage = pageValue;
+        }
+      },
+
+      buyButtonHandler(product) {
+        this.$emit('buy', product);
+      },
+
+      buttonViewAllHandler(event) {
+        this.filteredProducts = this.products;
+        event.preventDefault();
+      },
+    },
+    computed: {
+      paginatorChars() {
+        let pageNumbers = [...Array(this.totalPages + 1).keys()].slice(1);
+        return ['<', ...pageNumbers, '>'];
+      },
     },
     mounted() {
       this.products = products; // TODO: вместо rest-api для проверки в браузере
 
       this.filterProducts();
+      this.setPaginatedProducts();
+      this.setTotalPages();
+      this.getPaginator();
     },
     components: {
       ProductCard,
@@ -591,6 +653,12 @@
 
   .page-nav
     a:hover
+      color: $colorAccent
+
+  .page-nav
+    .active,
+    a:active
+      font-weight: 600
       color: $colorAccent
 
   .page-nav
